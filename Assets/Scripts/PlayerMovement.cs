@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController controller;
+    private CharacterController controller;
+
     public float movementSpeed = 10f;
     public float gravity = -9.81f;
     public float vertVelocity = 0;
@@ -34,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //used for gravity and falling as the Character Controller is a different way of implementing moving and doesn't have gravity as a trigger
         //might try later to implement it with a rigid body instead but this supposedly allows us to implement crouching easier so
         
@@ -81,11 +86,11 @@ public class PlayerMovement : MonoBehaviour
 
         // calculate the effect and apply gravity to player
         velocity.y += gravity * Time.deltaTime;
-        
+
         controller.Move(move * movementSpeed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
 
-
     }
+
 
 }
