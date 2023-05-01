@@ -8,6 +8,7 @@ public class InventoryManager : MonoBehaviour
 
     // Player inventory
     public List<AllItems> _inventoryItems = new List<AllItems>();
+    public GameObject itemUI;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class InventoryManager : MonoBehaviour
         if (!_inventoryItems.Contains(item))
         {
             _inventoryItems.Add(item);
+            itemUI.SetActive(true);
         }
     }
 
@@ -27,6 +29,7 @@ public class InventoryManager : MonoBehaviour
         if (_inventoryItems.Contains(item))
         {
             _inventoryItems.Remove(item);
+            itemUI.SetActive(false);
         }
     }
 

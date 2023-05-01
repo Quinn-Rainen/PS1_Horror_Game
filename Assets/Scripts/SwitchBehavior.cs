@@ -17,6 +17,10 @@ public class SwitchBehavior : MonoBehaviour
 
     [SerializeField] InventoryManager.AllItems _requiredItem;
 
+    public GameObject OpenPrompt;
+    public GameObject LockedPrompt;
+    private bool proximityCheck;
+
     //bool _isDoorLocked = true;
 
     void Awake()
@@ -36,6 +40,23 @@ public class SwitchBehavior : MonoBehaviour
         else if (!_isPressingSwitch)
         {
             MoveSwitchUp();
+        }
+        if (proximityCheck && Input.GetKeyDown(KeyCode.E))
+        {
+            _isPressingSwitch = !_isPressingSwitch;
+            OpenPrompt.SetActive(false);
+            if (HasRequiredItem(_requiredItem))
+            {
+                if (_isDoorOpenSwitch && !_doorBehavior._isDoorOpen)
+                {
+                    _doorBehavior._isDoorOpen = !_doorBehavior._isDoorOpen;
+                } else if (_isDoorCloseSwitch && _doorBehavior._isDoorOpen)
+                {
+                    _doorBehavior._isDoorOpen = !_doorBehavior._isDoorOpen;
+                }
+            } else {
+                LockedPrompt.SetActive(true);
+            }
         }
     }
 
@@ -59,23 +80,17 @@ public class SwitchBehavior : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            _isPressingSwitch = !_isPressingSwitch;
-
-            if (HasRequiredItem(_requiredItem))
-            {
-                if (_isDoorOpenSwitch && !_doorBehavior._isDoorOpen)
-                {
-                    _doorBehavior._isDoorOpen = !_doorBehavior._isDoorOpen;
-                } else if (_isDoorCloseSwitch && _doorBehavior._isDoorOpen)
-                {
-                    _doorBehavior._isDoorOpen = !_doorBehavior._isDoorOpen;
-                }
-            }
+            //_isPressingSwitch = !_isPressingSwitch;
+            OpenPrompt.SetActive(true);
+            proximityCheck = true;
         }
     }
 
     private void OnTriggerExit(Collider collision)
     {
+        OpenPrompt.SetActive(false);
+        LockedPrompt.SetActive(false);
+        proximityCheck = false;
         if(collision.CompareTag("Player"))
         {
             StartCoroutine(SwitchUpDelay(_switchDelay));
