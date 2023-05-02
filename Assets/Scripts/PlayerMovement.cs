@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
 
+    AudioSource m_AudioSource;
+
     public float movementSpeed = 10f;
     public float gravity = -9.81f;
     public float vertVelocity = 0;
@@ -28,10 +30,13 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
+    bool is_moving;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        m_AudioSource = GetComponent<AudioSource>();
+        is_moving = false;
     }
 
 
@@ -90,6 +95,30 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * movementSpeed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
 
+        // check to see if the player is moving, and set is_moving
+        // accordingly
+        is_moving = !Mathf.Approximately(horizontal, 0.0f) || !Mathf.Approximately(forward, 0.0f);
+        /*
+        Debug.Log(velocity);
+        Debug.Log(is_moving);
+        */
+
+    }
+
+    void FixedUpdate()
+    {
+        // check if the player is moving and play audio (footsteps) if they are
+        if (is_moving)
+        {
+            if (! m_AudioSource.isPlaying)
+            {
+                m_AudioSource.Play();
+            }
+        }
+        else
+        {
+            m_AudioSource.Stop();
+        }
     }
 
 
