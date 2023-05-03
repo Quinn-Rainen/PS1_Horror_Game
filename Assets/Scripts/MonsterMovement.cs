@@ -7,66 +7,65 @@ public class MonsterMovement : MonoBehaviour
 
 // for z coordinate makes the monster come towards you
     public float monstDistance = -80.0f;
-// start a timer to make the model not block the room.
-    private float timer = 0f;
     public float monstSpeed = 20.0f;
-    private float speed2 = 3.0f; //just for making the model disapeear up
-    bool playerInRange = false;
-    private bool hasMoved = false;
-    public float verticalDistance = 90f;
-    private Vector3 startPosition;
+    private bool inProximity;
+    private bool hasMoved;
+    private bool timeToLeave;
 
-    void Start(){
-                startPosition = transform.position;
+    public GameObject Enemy;
+
+    void Start()
+    {
+        Enemy.SetActive(true);
+        inProximity = false;
+        hasMoved = false;
+        timeToLeave = false;
     }
 
-    Vector3 theTarget;
-    void Update(){
-
-        if (playerInRange && !hasMoved)
+    void Update()
+    {
+        if (inProximity && !hasMoved)
         {
             Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - monstDistance);
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * monstSpeed);
-
-            if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
-            {
-                hasMoved = true;
-            }
         }
-
-        // if (Vector3.Distance(transform.position, targetPosition) < 0.1f){
-        //     //initially had this in the above if statement but then it could not trigger if someone walks out of collider
-            
-        //     timer += Time.deltaTime; 
-        //     if (timer >= 10f && !hasMoved) 
-        //     {
-        //         //calculate vertical distance to make monster disappear
-        //         targetPosition = transform.position + new Vector3(0, verticalDistance, 0);
-        //         transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * speed2);
-                
-        //         // Make a check to stop after my arbitrary point so it doesn't get compiler errors
-        //         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
-        //         {
-        //             hasMoved = true;
-        //         }
-        //     } 
-        // }   
-
-
-    }
-
-    void OnTriggerEnter(Collider other){
-        if(other.CompareTag("Player")){
-            playerInRange = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        if (timeToLeave)
         {
-            playerInRange = false;
+            Vector3 targetUp = new Vector3(transform.position.x, transform.position.y + 50, transform.position.z);
+            transform.position = Vector3.Lerp(transform.position, targetUp, Time.deltaTime * monstSpeed);
+            //StartCoroutine(ExampleCoroutine2());     
+        }  
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.CompareTag("Player"))
+        {  
+            inProximity = true;
         }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.CompareTag("Player"))
+        {  
+            inProximity = false;
+            StartCoroutine(ExampleCoroutine1());
+        }
+    }
+
+    IEnumerator ExampleCoroutine1()
+    {
+        yield return new WaitForSeconds(2);
+        timeToLeave = true;
+
+    }
+
+    IEnumerator ExampleCoroutine2()
+    {
+        yield return new WaitForSeconds(4);
+        Enemy.SetActive(false);
+
     }
 
 }

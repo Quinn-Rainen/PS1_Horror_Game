@@ -5,12 +5,10 @@ using UnityEngine;
 public class CrouchPromptTrigger : MonoBehaviour
 {
     public GameObject CrouchPrompt;
-    private bool proximityCheck;
 
     void Start()
     {
         CrouchPrompt.SetActive(false);
-        proximityCheck = false;
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -19,7 +17,6 @@ public class CrouchPromptTrigger : MonoBehaviour
         {
             //_switchBehavior.DoorLockedStatus();
             CrouchPrompt.SetActive(true);
-            proximityCheck = true;
         }
     }
     private void OnTriggerExit(Collider collision)
@@ -28,7 +25,6 @@ public class CrouchPromptTrigger : MonoBehaviour
         {
             //_switchBehavior.DoorLockedStatus();
             CrouchPrompt.SetActive(false);
-            proximityCheck = false;
         }
     }
 }
