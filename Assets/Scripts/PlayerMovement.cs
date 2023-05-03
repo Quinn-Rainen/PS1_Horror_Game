@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         m_AudioSource = GetComponent<AudioSource>();
         is_moving = false;
+        isCrouching = false;
     }
 
 
@@ -57,11 +58,9 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.C))
         {
-            isCrouching = true;
-        } else {
-            isCrouching = false;
+            isCrouching = !isCrouching;
         }
 
         if (Input.GetKey(KeyCode.LeftShift) && isCrouching == false)
