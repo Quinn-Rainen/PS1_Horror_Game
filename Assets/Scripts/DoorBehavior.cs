@@ -9,6 +9,14 @@ public class DoorBehavior : MonoBehaviour
     Vector3 _doorOpenPos;
     float _doorSpeed = 10;
 
+    AudioSource d_AudioSource;
+    bool if_audio_played = false;
+
+    void Start()
+    {
+        d_AudioSource = GetComponent<AudioSource>();
+    }
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,6 +40,16 @@ public class DoorBehavior : MonoBehaviour
         if (transform.position != _doorOpenPos)
         {
             transform.position = Vector3.MoveTowards(transform.position, _doorOpenPos, _doorSpeed * Time.deltaTime);
+        }
+
+        // this is kind of a janky way of only playing the audio once
+        // (just have a check to see if the audio has been played or
+        // not), but Quinn and Zane couldn't come up with any better
+        // ideas. 
+        if (! if_audio_played)
+        {
+            d_AudioSource.Play();
+            if_audio_played = true;
         }
     }
 
