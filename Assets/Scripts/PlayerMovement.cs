@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
 
     AudioSource m_AudioSource;
+    public AudioClip footfalls; // normal walking audio
+    public AudioClip footfalls_sprinting; // normal walking audio
 
     public float movementSpeed = 10f;
     public float gravity = -9.81f;
@@ -51,6 +53,10 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float forward = Input.GetAxis("Vertical");
 
+        // check to see if the player is moving, and set is_moving
+        // accordingly
+        is_moving = !Mathf.Approximately(horizontal, 0.0f) || !Mathf.Approximately(forward, 0.0f);
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if(isGrounded && velocity.y < 0)
@@ -69,9 +75,6 @@ public class PlayerMovement : MonoBehaviour
         } else {
             isSprinting = false;
         }
-
-
-         
 
         //calculate the movement then apply it
         Vector3 move = transform.right * horizontal + transform.forward * forward;
@@ -93,15 +96,6 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * movementSpeed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
-
-        // check to see if the player is moving, and set is_moving
-        // accordingly
-        is_moving = !Mathf.Approximately(horizontal, 0.0f) || !Mathf.Approximately(forward, 0.0f);
-        /*
-        Debug.Log(velocity);
-        Debug.Log(is_moving);
-        */
-
     }
 
     void FixedUpdate()
@@ -109,6 +103,17 @@ public class PlayerMovement : MonoBehaviour
         // check if the player is moving and play audio (footsteps) if they are
         if (is_moving)
         {
+            if (isSprinting)
+            {
+                m_AudioSource.clip = footfalls_sprinting;
+                // m_AudioSource.Stop();
+            }
+            else
+            {
+                m_AudioSource.clip = footfalls;
+                // m_AudioSource.Stop();
+            }
+            
             if (! m_AudioSource.isPlaying)
             {
                 m_AudioSource.Play();
