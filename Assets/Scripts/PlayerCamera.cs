@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
+    public static float mouseSensitivity = 100f;
     public Transform playerBody;
     float xRotation = 0f;
 
@@ -12,6 +12,11 @@ public class PlayerCamera : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void updateSensitivity (float sensitivityAdjustment)
+    {
+        mouseSensitivity = sensitivityAdjustment;
     }
 
     // Update is called once per frame
