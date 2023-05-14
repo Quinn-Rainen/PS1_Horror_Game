@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwitchBehavior : MonoBehaviour
 {
     [SerializeField] DoorBehavior _doorBehavior;
+    [SerializeField] bool _isDoorLocked;
     [SerializeField] bool _isDoorOpenSwitch;
     [SerializeField] bool _isDoorCloseSwitch;
 
@@ -45,17 +46,27 @@ public class SwitchBehavior : MonoBehaviour
         {
             _isPressingSwitch = !_isPressingSwitch;
             OpenPrompt.SetActive(false);
-            if (HasRequiredItem(_requiredItem))
-            {
-                if (_isDoorOpenSwitch && !_doorBehavior._isDoorOpen)
+            if (_isDoorLocked) {
+                if (HasRequiredItem(_requiredItem))
                 {
-                    _doorBehavior._isDoorOpen = !_doorBehavior._isDoorOpen;
-                } else if (_isDoorCloseSwitch && _doorBehavior._isDoorOpen)
-                {
-                    _doorBehavior._isDoorOpen = !_doorBehavior._isDoorOpen;
+                    if (_isDoorOpenSwitch && !_doorBehavior._isDoorOpen)
+                    {
+                        _doorBehavior._isDoorOpen = !_doorBehavior._isDoorOpen;
+                    } else if (_isDoorCloseSwitch && _doorBehavior._isDoorOpen)
+                    {
+                        _doorBehavior._isDoorOpen = !_doorBehavior._isDoorOpen;
+                    }
+                } else {
+                    LockedPrompt.SetActive(true);
                 }
             } else {
-                LockedPrompt.SetActive(true);
+                if (_isDoorOpenSwitch && !_doorBehavior._isDoorOpen)
+                    {
+                        _doorBehavior._isDoorOpen = !_doorBehavior._isDoorOpen;
+                    } else if (_isDoorCloseSwitch && _doorBehavior._isDoorOpen)
+                    {
+                        _doorBehavior._isDoorOpen = !_doorBehavior._isDoorOpen;
+                    }
             }
         }
     }
