@@ -5,6 +5,7 @@ using UnityEngine;
 public class SelectionManager : MonoBehaviour
 {
     [SerializeField] private string selectableTag = "Selectable";
+    [SerializeField] private string keypadTag = "Keypad";
     [SerializeField] private Material highlightMaterial;
     //[SerializeField] private Material defaultMaterial;
     public GameObject player;
@@ -30,7 +31,7 @@ public class SelectionManager : MonoBehaviour
             
             Vector3 distanceToObject = selection.position - player.transform.position; 
             distanceToObject.y = 0;
-            if (selection.CompareTag(selectableTag))
+            if (selection.CompareTag(selectableTag) || selection.CompareTag(keypadTag))
             {
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if ((selection != null) && (distanceToObject.magnitude <= interactionRadius))

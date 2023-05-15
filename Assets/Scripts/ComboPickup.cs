@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyBehavior : MonoBehaviour
+
+public class ComboPickup : MonoBehaviour
 {
     [SerializeField] InventoryManager.AllItems _itemType;
     [SerializeField] private string selectableTag = "Selectable";
@@ -11,9 +12,9 @@ public class KeyBehavior : MonoBehaviour
     public GameObject player;
     public float interactionRadius = 30f;
 
-    public GameObject Canvas;
-    public GameObject findTheKey;
-    public GameObject findTheKeyS;
+    //public GameObject Canvas;
+    //public GameObject findTheKey;
+    //public GameObject findTheKeyS;
 
 
     void Update()
@@ -29,9 +30,9 @@ public class KeyBehavior : MonoBehaviour
             {
                 InventoryManager.Instance.AddItem(_itemType);
                 Destroy(gameObject);
-                findTheKey.SetActive(false);
-                findTheKeyS.SetActive(true);
-                Canvas.GetComponent<ObjectiveUI>().openOverlay();
+                //findTheKey.SetActive(false);
+                //findTheKeyS.SetActive(true);
+                //Canvas.GetComponent<ObjectiveUI>().openOverlay();
             }
         }
     }
