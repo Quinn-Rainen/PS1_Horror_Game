@@ -6,7 +6,7 @@ public class SelectionManager : MonoBehaviour
 {
     [SerializeField] private string selectableTag = "Selectable";
     [SerializeField] private Material highlightMaterial;
-    [SerializeField] private Material defaultMaterial;
+    //[SerializeField] private Material defaultMaterial;
     public GameObject player;
     public float interactionRadius = 50f;
 
@@ -18,7 +18,8 @@ public class SelectionManager : MonoBehaviour
         if (_selection != null)
         {
             var selectionRenderer = _selection.GetComponent<Renderer>();
-            selectionRenderer.material = defaultMaterial;
+            selectionRenderer.materials[0].DisableKeyword ("_EMISSION");
+            selectionRenderer.material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
             _selection = null;
         }
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -34,7 +35,9 @@ public class SelectionManager : MonoBehaviour
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if ((selection != null) && (distanceToObject.magnitude <= interactionRadius))
                 {
-                    selectionRenderer.material = highlightMaterial;
+                    //selectionRenderer.material = highlightMaterial;
+                    selectionRenderer.materials[0].EnableKeyword ("_EMISSION");
+                    selectionRenderer.material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
                 }
 
                 _selection = selection;
