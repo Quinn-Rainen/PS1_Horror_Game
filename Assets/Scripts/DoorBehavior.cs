@@ -14,11 +14,7 @@ public class DoorBehavior : MonoBehaviour
     private Animator anim;
 
     public GameObject player;
-    public float interactionRadius = 50f;
-
-    [SerializeField] bool _isDoorLocked;
-    [SerializeField] InventoryManager.AllItems _requiredItem;
-    
+    public float interactionRadius = 40f;
 
     void Start()
     {
@@ -48,26 +44,14 @@ public class DoorBehavior : MonoBehaviour
         distanceToObject.y = 0;
         if ((distanceToObject.magnitude <= interactionRadius) && Input.GetKeyDown(KeyCode.E))
         {
-            if (_isDoorLocked)
+            if (!_isDoorOpen)
             {
-                if (HasRequiredItem(_requiredItem)) 
-                {
-                    _isDoorLocked = false;
-                    // play unlock sound
-                } else {
-                    // play locked sound
-                    // potentially trigger objective UI
-                }
-            } else {
-                if (!_isDoorOpen)
-                {
-                    OpenDoor();
-                } 
-                else if (_isDoorOpen)
-                {
-                    CloseDoor();
-                }
-            }
+                OpenDoor();
+            } 
+            else if (_isDoorOpen)
+            {
+                CloseDoor();
+            }   
         }
     }
 
@@ -85,16 +69,6 @@ public class DoorBehavior : MonoBehaviour
         _isDoorOpen = false;
         //anim.SetTrigger("closeTrigger");
         closeDoorSound.Play();
-    }
-
-    public bool HasRequiredItem(InventoryManager.AllItems itemRequired)
-    {
-        if (InventoryManager.Instance._inventoryItems.Contains(itemRequired))
-        {
-            return true;
-        } else {
-            return false;
-        }
     }
 }
 

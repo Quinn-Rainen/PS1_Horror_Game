@@ -6,42 +6,26 @@ public class KeyBehavior : MonoBehaviour
 {
     [SerializeField] InventoryManager.AllItems _itemType;
     [SerializeField] SwitchBehavior _switchBehavior;
+    
+    public GameObject player;
+    public float interactionRadius = 30f;
 
-    public GameObject PickupPrompt;
-    private bool proximityCheck;
+    public GameObject Canvas;
+    public GameObject findTheKey;
+    public GameObject findTheKeyS;
 
-    void Start()
-    {
-        PickupPrompt.SetActive(false);
-        proximityCheck = false;
-    }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            //_switchBehavior.DoorLockedStatus();
-            PickupPrompt.SetActive(true);
-            proximityCheck = true;
-        }
-    }
-    private void OnTriggerExit(Collider collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            //_switchBehavior.DoorLockedStatus();
-            PickupPrompt.SetActive(false);
-             proximityCheck = false;
-        }
-    }
 
     void Update()
     {
-        if (proximityCheck && Input.GetKeyDown(KeyCode.E))
+        Vector3 distanceToObject = transform.position - player.transform.position; 
+        distanceToObject.y = 0;
+        if ((distanceToObject.magnitude <= interactionRadius) && Input.GetKeyDown(KeyCode.E))
         {
             InventoryManager.Instance.AddItem(_itemType);
                 Destroy(gameObject);
-                PickupPrompt.SetActive(false);
+                findTheKey.SetActive(false);
+                findTheKeyS.SetActive(true);
+                Canvas.GetComponent<ObjectiveUI>().openOverlay();
         }
     }
 }
