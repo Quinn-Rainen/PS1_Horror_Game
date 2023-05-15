@@ -8,9 +8,23 @@ public class InventoryManager : MonoBehaviour
 
     // Player inventory
     public List<AllItems> _inventoryItems = new List<AllItems>();
-    public GameObject itemUI;
+    public GameObject keyUI;
+    public GameObject redUI;
+    public GameObject greenUI;
+    public GameObject blueUI;
+    
+    public GameObject Canvas;
+    public GameObject aCombo;
+    public GameObject aComboS;
+
+    public bool redAcquired = false;
+    public bool greenAcquired = false;
+    public bool blueAcquired = false;
+    public bool oneTime = false;
 
     AudioSource i_AudioSource;
+
+    public AllItems itemName;
 
     void Start()
     {
@@ -22,13 +36,42 @@ public class InventoryManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Update()
+    {
+        if (redAcquired && blueAcquired && greenAcquired && !oneTime)
+        {
+            oneTime = true;
+            aCombo.SetActive(false);
+            aComboS.SetActive(true);
+            Canvas.GetComponent<ObjectiveUI>().openOverlay();
+        }
+    }
+
     public void AddItem(AllItems item)
     {
         if (!_inventoryItems.Contains(item))
         {
             _inventoryItems.Add(item);
-            itemUI.SetActive(true);
             i_AudioSource.Play();
+            //AllItems itemName = collider.GetComponent<AllItems>();
+            switch (item)
+            {
+                case AllItems.Key:
+                    keyUI.SetActive(true); 
+                    break;
+                case AllItems.Red1:
+                    redAcquired = true;
+                    redUI.SetActive(true);
+                    break;
+                case AllItems.Green2:
+                    greenAcquired = true;
+                    greenUI.SetActive(true);
+                    break;
+                case AllItems.Blue3:
+                    blueAcquired = true;
+                    blueUI.SetActive(true);
+                    break;
+            }
         }
     }
 
@@ -37,13 +80,31 @@ public class InventoryManager : MonoBehaviour
         if (_inventoryItems.Contains(item))
         {
             _inventoryItems.Remove(item);
-            itemUI.SetActive(false);
+            switch (item)
+            {
+                case AllItems.Key:
+                    keyUI.SetActive(false); 
+                    break;
+                case AllItems.Red1:
+                    redUI.SetActive(false);
+                    break;
+                case AllItems.Green2:
+                    greenUI.SetActive(false);
+                    break;
+                case AllItems.Blue3:
+                    blueUI.SetActive(false);
+                    break;
+            }
         }
     }
 
     // All inventory items in game
     public enum AllItems
     {
-        Key
+        Key,
+        Red1,
+        Green2,
+        Blue3
     }
+
 }
