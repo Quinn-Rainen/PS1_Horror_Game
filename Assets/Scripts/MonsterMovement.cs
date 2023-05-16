@@ -48,7 +48,7 @@ public class MonsterMovement : MonoBehaviour
 
         isMoving = agent.velocity.magnitude > 0.1f;
 
-        animator.SetBool("isMoving", isMoving);
+        //animator.SetBool("isMoving", isMoving);
         animator.SetBool("isAttacking", isAttacking);
         float speed = agent.velocity.magnitude;
         animator.SetFloat("Speed", speed);
