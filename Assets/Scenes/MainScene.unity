@@ -3484,7 +3484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2944833013952985494, guid: 83d7cce18a7c04b96b135d1451ba3cd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.124
+      value: 15.1
       objectReference: {fileID: 0}
     - target: {fileID: 2944833013952985494, guid: 83d7cce18a7c04b96b135d1451ba3cd6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13938,7 +13938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 17, y: -19}
+  m_AnchoredPosition: {x: 17, y: -18.999878}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1153682055
@@ -16225,6 +16225,8 @@ MonoBehaviour:
   attackRange: 4.52
   playerInSightRange: 0
   playerInAttackRange: 0
+  isMoving: 0
+  isAttacking: 0
 --- !u!195 &1355274413
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -23556,6 +23558,8 @@ MonoBehaviour:
   attackRange: 3
   playerInSightRange: 0
   playerInAttackRange: 0
+  isMoving: 0
+  isAttacking: 0
 --- !u!195 &2079071942
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class MonsterMovement : MonoBehaviour
 {
+    //animation
+    private Vector3 moveDirection;
     public NavMeshAgent agent;
 
     // for our actual player
@@ -25,10 +27,14 @@ public class MonsterMovement : MonoBehaviour
     //states
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+    private Animator animator;
+    public bool isMoving = false;
+    public bool isAttacking = false;
 
     private void Awake(){
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update(){
@@ -39,6 +45,13 @@ public class MonsterMovement : MonoBehaviour
         if(!playerInAttackRange && !playerInSightRange) Patroling();
         if(playerInSightRange && !playerInAttackRange) ChasePlayer();
         if(playerInAttackRange && playerInSightRange) AttackPlayer();
+
+        isMoving = agent.velocity.magnitude > 0.1f;
+
+        animator.SetBool("isMoving", isMoving);
+        animator.SetBool("isAttacking", isAttacking);
+        float speed = agent.velocity.magnitude;
+        animator.SetFloat("Speed", speed);
     }
 
     private void Patroling(){
@@ -81,7 +94,7 @@ public class MonsterMovement : MonoBehaviour
 
         if (!alreadyAttacked){
             //attack code here
-
+            isAttacking = true;
             //
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -89,6 +102,8 @@ public class MonsterMovement : MonoBehaviour
     }
 
     private void ResetAttack(){
+        alreadyAttacked = false;
+        isAttacking = false;
         alreadyAttacked = false;
     }
 
