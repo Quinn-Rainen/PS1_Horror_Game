@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
 
-    AudioSource m_AudioSource;
+    public AudioSource w_AudioSource;
+    public AudioSource b_AudioSource;
     public AudioClip footfalls; // normal walking audio
     public AudioClip footfalls_sprinting; // normal walking audio
 
@@ -33,13 +34,15 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
     bool is_moving;
+    bool is_breathing;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        m_AudioSource = GetComponent<AudioSource>();
+        w_AudioSource = GetComponent<AudioSource>();
         is_moving = false;
         isCrouching = false;
+        is_breathing = false;
     }
 
 
@@ -96,34 +99,49 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * movementSpeed * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
+
+        PlayerSound();
     }
 
-    void FixedUpdate()
+    void PlayerSound()
     {
-        // check if the player is moving and play audio (footsteps) if they are
-        if (is_moving)
+        //Debug.Log(PauseMenu.isPaused);
+        if (PauseMenu.isPaused)
         {
-            if (isSprinting)
-            {
-                m_AudioSource.clip = footfalls_sprinting;
-                // m_AudioSource.Stop();
-            }
-            else
-            {
-                m_AudioSource.clip = footfalls;
-                // m_AudioSource.Stop();
-            }
-            
-            if (! m_AudioSource.isPlaying)
-            {
-                m_AudioSource.Play();
-            }
+            b_AudioSource.Stop();
+            w_AudioSource.Stop();
+            is_breathing = false;
         }
         else
         {
-            m_AudioSource.Stop();
+            if (! is_breathing)
+            {
+                is_breathing = true;
+                b_AudioSource.Play();
+            }
+            // check if the player is moving and play audio (footsteps) if they are
+            if (is_moving)
+            {
+                if (isSprinting)
+                {
+                    w_AudioSource.clip = footfalls_sprinting;
+                    // w_AudioSource.Stop();
+                }
+                else
+                {
+                    w_AudioSource.clip = footfalls;
+                    // w_AudioSource.Stop();
+                }
+                
+                if (! w_AudioSource.isPlaying)
+                {
+                    w_AudioSource.Play();
+                }
+            }
+            else
+            {
+                w_AudioSource.Stop();
+            }
         }
     }
-
-
 }
