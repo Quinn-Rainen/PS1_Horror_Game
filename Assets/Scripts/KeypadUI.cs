@@ -13,15 +13,25 @@ public class KeypadUI : MonoBehaviour
     public GameObject keypadDisplay;
     public GameObject door;
 
+    public AudioClip boop;
+    public AudioClip boop_fail;
+    public AudioClip boop_success;
+    public AudioClip boop_clear;
+
+    AudioSource kp_AudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         // on interaction, renable cursor
         keypadDisplay.SetActive(false);
+        kp_AudioSource = GetComponent<AudioSource>();
     }
 
     public void Number(int num)
     {
+        kp_AudioSource.clip = boop;
+        kp_AudioSource.Play();
         textInput.text += num.ToString();
     }
 
@@ -29,17 +39,23 @@ public class KeypadUI : MonoBehaviour
     {
         if (textInput.text == answer)
         {
+            kp_AudioSource.clip = boop_success;
+            kp_AudioSource.Play();
             textInput.text = "Accepted";
             door.GetComponent<KeypadDoorBehavior>().unlockDoor();
         }
         else
         {
+            kp_AudioSource.clip = boop_fail;
+            kp_AudioSource.Play();
             textInput.text = "Incorrect";
         }
     }
 
     public void Clear()
     {
+        kp_AudioSource.clip = boop_clear;
+        kp_AudioSource.Play();
         textInput.text = "";
     }
 
