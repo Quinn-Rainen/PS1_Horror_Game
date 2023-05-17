@@ -1,71 +1,111 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MonsterMovement : MonoBehaviour
 {
+    //animation
+    private Vector3 moveDirection;
+    public NavMeshAgent agent;
 
-// for z coordinate makes the monster come towards you
-    public float monstDistance = -80.0f;
-    public float monstSpeed = 20.0f;
-    private bool inProximity;
-    private bool hasMoved;
-    private bool timeToLeave;
+    // for our actual player
+    public Transform player;
 
-    public GameObject Enemy;
+    // for the layers, confusing name I know but fuck it
+    public LayerMask Ground, Player;
 
-    void Start()
-    {
-        Enemy.SetActive(true);
-        inProximity = false;
-        hasMoved = false;
-        timeToLeave = false;
+    //Patrolling
+    public Vector3 walkPoint;
+    bool walkPointSet;
+    public float walkPointRange;
+
+    //Attacking
+    public float timeBetweenAttacks;
+    bool alreadyAttacked;
+
+    //states
+    public float sightRange, attackRange;
+    public bool playerInSightRange, playerInAttackRange;
+    private Animator animator;
+    public bool isMoving = false;
+    public bool isAttacking = false;
+
+    private void Awake(){
+        player = GameObject.Find("Player").transform;
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        if (inProximity && !hasMoved)
-        {
-            Vector3 targetPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - monstDistance);
-            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * monstSpeed);
+    private void Update(){
+        //Check for sight and attack range
+        playerInSightRange = Physics.CheckSphere(transform.position, sightRange,Player);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange,Player);
+
+        if(!playerInAttackRange && !playerInSightRange) Patroling();
+        if(playerInSightRange && !playerInAttackRange) ChasePlayer();
+        if(playerInAttackRange && playerInSightRange) AttackPlayer();
+
+        isMoving = agent.velocity.magnitude > 0.1f;
+
+        //animator.SetBool("isMoving", isMoving);
+        animator.SetBool("isAttacking", isAttacking);
+        float speed = agent.velocity.magnitude;
+        animator.SetFloat("Speed", speed);
+    }
+
+    private void Patroling(){
+        if (!walkPointSet) SearchWalkPoint();
+
+        if(walkPointSet){
+            agent.SetDestination(walkPoint);
         }
-        if (timeToLeave)
-        {
-            Vector3 targetUp = new Vector3(transform.position.x, transform.position.y + 50, transform.position.z);
-            transform.position = Vector3.Lerp(transform.position, targetUp, Time.deltaTime * monstSpeed);
-            //StartCoroutine(ExampleCoroutine2());     
-        }  
-    }
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.CompareTag("Player"))
-        {  
-            inProximity = true;
+        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+
+        //If Walkpoint is reached by AI
+        if(distanceToWalkPoint.magnitude < 1f){
+            walkPointSet = false;
         }
     }
 
-    private void OnTriggerExit(Collider collision)
-    {
-        if (collision.CompareTag("Player"))
-        {  
-            inProximity = false;
-            StartCoroutine(ExampleCoroutine1());
+    private void SearchWalkPoint(){
+        //Calcs random points in range
+        float randomZ = Random.Range(-walkPointRange, walkPointRange);
+        float randomX = Random.Range(-walkPointRange, walkPointRange);
+
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+
+        if(Physics.Raycast(walkPoint, -transform.up, 2f, Ground)){
+            walkPointSet = true;
+        }
+
+    }
+
+    private void ChasePlayer(){
+        agent.SetDestination(player.position);
+    }
+
+    private void AttackPlayer(){
+        //Make sure enemy doesn't move
+        agent.SetDestination(transform.position);
+
+        transform.LookAt(player);
+
+        if (!alreadyAttacked){
+            //attack code here
+            isAttacking = true;
+            //
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
 
-    IEnumerator ExampleCoroutine1()
-    {
-        yield return new WaitForSeconds(2);
-        timeToLeave = true;
-
+    private void ResetAttack(){
+        alreadyAttacked = false;
+        isAttacking = false;
+        alreadyAttacked = false;
     }
 
-    IEnumerator ExampleCoroutine2()
-    {
-        yield return new WaitForSeconds(4);
-        Enemy.SetActive(false);
-
-    }
 
 }
