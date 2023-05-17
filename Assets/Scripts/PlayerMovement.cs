@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        w_AudioSource = GetComponent<AudioSource>();
+        //w_AudioSource = GetComponent<AudioSource>();
         is_moving = false;
         isCrouching = false;
         is_breathing = false;
