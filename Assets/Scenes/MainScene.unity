@@ -5956,7 +5956,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.003464618, y: 0.0048097423, z: 0.0013534185}
+  m_Size: {x: 0.002964618, y: 0.0048097423, z: 0.00093418}
   m_Center: {x: 0.0015221905, y: -0.00025795013, z: 0.00015506709}
 --- !u!114 &777391538
 MonoBehaviour:
@@ -6738,6 +6738,7 @@ GameObject:
   - component: {fileID: 832199857}
   - component: {fileID: 832199860}
   - component: {fileID: 832199861}
+  - component: {fileID: 832199862}
   m_Layer: 0
   m_Name: Keypad
   m_TagString: Keypad
@@ -6851,10 +6852,23 @@ BoxCollider:
   m_GameObject: {fileID: 832199856}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.7, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &832199862
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832199856}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0.00000071525574, z: 0}
 --- !u!1 &844143525
 GameObject:
   m_ObjectHideFlags: 0
