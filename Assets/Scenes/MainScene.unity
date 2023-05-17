@@ -2626,6 +2626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1monsteranimated
       objectReference: {fileID: 0}
+    - target: {fileID: 2564226775231161132, guid: 83d7cce18a7c04b96b135d1451ba3cd6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2944833013952985494, guid: 83d7cce18a7c04b96b135d1451ba3cd6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4418,9 +4422,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df94898c68c4df46a903d5a59273843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleUI: {fileID: 481809884}
+  titleText: {fileID: 481809884}
   inventoryUI: {fileID: 332368422}
   Canvas: {fileID: 1312122289}
+  titleUI: {fileID: 481809881}
 --- !u!225 &481809884
 CanvasGroup:
   m_ObjectHideFlags: 0

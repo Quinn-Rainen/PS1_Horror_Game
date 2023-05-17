@@ -5,21 +5,23 @@ using UnityEngine;
 public class GameStartUI : MonoBehaviour
 {
 
-    [SerializeField] CanvasGroup titleUI;
+    [SerializeField] CanvasGroup titleText;
     public GameObject inventoryUI;
     public GameObject Canvas;
+    public GameObject titleUI;
 
     // Update is called once per frame
     void Start()
     {
         inventoryUI.SetActive(false);
+        titleUI.SetActive(true);
         showTitle(); 
     }
 
     public void showTitle()
     {
-        titleUI.alpha = 1;
-        StartCoroutine(fadeOverlay(titleUI, 1));
+        titleText.alpha = 1;
+        StartCoroutine(fadeOverlay(titleText, 1));
     }
 
     public IEnumerator fadeOverlay(CanvasGroup o, float f)
@@ -32,5 +34,7 @@ public class GameStartUI : MonoBehaviour
         }
         inventoryUI.SetActive(true);
         Canvas.GetComponent<ObjectiveUI>().openOverlay();
+        titleUI.SetActive(false);
+        
     }
 }
