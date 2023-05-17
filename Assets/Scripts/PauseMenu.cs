@@ -11,13 +11,34 @@ public class PauseMenu : MonoBehaviour
     public GameObject dotUI;
     public AudioMixer audioMixer;
     public static bool isPaused;
+    AudioSource pm_AudioSource;
+
+    public static PauseMenu Instance = null;
+    
+    void Awake()
+    {
+        // If there is not already an instance of PauseMenu, set it to this.
+		if (Instance == null)
+		{
+			Instance = this;
+		}
+		//If an instance already exists, destroy whatever this object is to enforce the singleton.
+		else if (Instance != this)
+		{
+			Destroy(gameObject);
+		}
+
+		//Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
+		DontDestroyOnLoad (gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         pMenu.SetActive(false);
         oMenu.SetActive(false);
         isPaused = false;
-        
+        pm_AudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,9 +52,7 @@ public class PauseMenu : MonoBehaviour
             } else {
                 PauseGame();
             }
-
         }
-        
     }
 
     public void PauseGame()
@@ -44,7 +63,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f;
         isPaused = true;
-        AudioListener.volume = 0;
+        pm_AudioSource.Play();
     }
 
     public void ResumeGame()
@@ -56,7 +75,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
         isPaused = false;
-        AudioListener.volume = 1;
+        pm_AudioSource.Stop();
     }
 
     public void OpenOptions()
