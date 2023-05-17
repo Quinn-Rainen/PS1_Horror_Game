@@ -34,6 +34,9 @@ public class MonsterMovement : MonoBehaviour
     private void Awake(){
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        agent.Warp(transform.position);
+        //this makes it start on the ground properly who fucking knows how
+        agent.baseOffset = transform.position.y * .04f;
         animator = GetComponent<Animator>();
     }
 
