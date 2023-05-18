@@ -20,17 +20,20 @@ public class Flashlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.F)){
-            flashlightToggleSound.Play();
-            if (!FlashlightActive)
-            {
-                Flashlight_emitter.intensity = 15; // 15 is the default brightness
-                FlashlightActive = true;
-            } 
-            else 
-            {
-                Flashlight_emitter.intensity = 0; // 0 to turn off flashlight
-                FlashlightActive = false;
+        if (! PauseMenu.isPaused)
+        {
+            if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.F)){
+                flashlightToggleSound.Play();
+                if (!FlashlightActive)
+                {
+                    Flashlight_emitter.intensity = 15; // 15 is the default brightness
+                    FlashlightActive = true;
+                } 
+                else 
+                {
+                    Flashlight_emitter.intensity = 0; // 0 to turn off flashlight
+                    FlashlightActive = false;
+                }
             }
         }
     }
