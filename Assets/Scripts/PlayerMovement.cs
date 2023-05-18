@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource w_AudioSource;
     public AudioSource b_AudioSource;
+    //public AudioSource f_AudioSource;
     public AudioClip footfalls; // normal walking audio
     public AudioClip footfalls_sprinting; // normal walking audio
 

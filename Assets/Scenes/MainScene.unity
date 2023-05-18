@@ -11435,6 +11435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1411917801}
   - component: {fileID: 1411917802}
+  - component: {fileID: 1411917803}
   m_Layer: 7
   m_Name: Flashlight
   m_TagString: Untagged
@@ -11519,6 +11520,102 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!82 &1411917803
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411917800}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -1077585076003447342, guid: 6054ef2eb2267a9408bbc3fa90ccda7d, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 5609af7743b894349802b8c7bec97b6f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.086
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1417293917 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1040395194935353372, guid: c726452305dc5481daf0d9908bd22510, type: 3}
@@ -15452,6 +15549,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 691243401228897934}
     - target: {fileID: 691243402514408344, guid: 115999df62b87de44815a93193662e6d, type: 3}
+      propertyPath: f_AudioSource
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 691243402514408344, guid: 115999df62b87de44815a93193662e6d, type: 3}
       propertyPath: m_AudioSource
       value: 
       objectReference: {fileID: 691243401228897928}
@@ -15552,7 +15653,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -1077585076003447342, guid: 6054ef2eb2267a9408bbc3fa90ccda7d, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.288
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -15649,6 +15750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlashlightLight: {fileID: 1411917800}
+  FlashlightActive: 1
 --- !u!82 &691243401228897934
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15661,7 +15763,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 6054ef2eb2267a9408bbc3fa90ccda7d, type: 2}
   m_audioClip: {fileID: 8300000, guid: bfdd07e24244a7d4ca835d1b0064a40e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.087
+  m_Volume: 0.07
   m_Pitch: 1
   Loop: 1
   Mute: 0
