@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     public AudioMixer audioMixer;
     public static bool isPaused;
     AudioSource pm_AudioSource;
+    [SerializeField] Button _exitGame;
 
     public static PauseMenu Instance = null;
     
@@ -39,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         oMenu.SetActive(false);
         isPaused = false;
         pm_AudioSource = GetComponent<AudioSource>();
+        _exitGame.onClick.AddListener(QuitToMM);
     }
 
     // Update is called once per frame
@@ -88,9 +91,9 @@ public class PauseMenu : MonoBehaviour
         oMenu.SetActive(false);
     }
 
-    public void QuitGame()
+    public void QuitToMM()
     {
-        Application.Quit();
+        ScenesManager.Instance.LoadMainMenu();
     }
 
     public void SetVolume (float volume)
