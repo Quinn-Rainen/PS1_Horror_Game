@@ -93,6 +93,13 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitToMM()
     {
+        pMenu.SetActive(false);
+        oMenu.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+        pm_AudioSource.Stop();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         ScenesManager.Instance.LoadMainMenu();
     }
 
