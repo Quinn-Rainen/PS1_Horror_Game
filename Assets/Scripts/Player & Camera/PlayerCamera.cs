@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    public static float mouseSensitivity = 100f;
+    public static float mouseSensitivity;
     public Transform playerBody;
     float xRotation = 0f;
     public GameObject keypadDisplay;
@@ -14,16 +14,18 @@ public class PlayerCamera : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        mouseSensitivity = PlayerPrefs.GetFloat("sensitivity");
     }
 
-    public void updateSensitivity (float sensitivityAdjustment)
+    public void updateSensitivity ()
     {
-        mouseSensitivity = sensitivityAdjustment;
+        mouseSensitivity = PlayerPrefs.GetFloat("sensitivity");
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if(!keypadDisplay.activeSelf) {
             float MouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float MouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;

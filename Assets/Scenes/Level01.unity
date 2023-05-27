@@ -714,7 +714,6 @@ MonoBehaviour:
   pMenu: {fileID: 2090948197}
   oMenu: {fileID: 1153682053}
   dotUI: {fileID: 122309728}
-  audioMixer: {fileID: 24100000, guid: 6054ef2eb2267a9408bbc3fa90ccda7d, type: 2}
   _exitGame: {fileID: 423473389}
 --- !u!4 &33729159
 Transform:
@@ -2468,6 +2467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 260185053}
   - component: {fileID: 260185054}
+  - component: {fileID: 260185055}
   m_Layer: 5
   m_Name: VolumeSlider
   m_TagString: Untagged
@@ -2549,9 +2549,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 33729158}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: SetVolume
+      - m_Target: {fileID: 762141527}
+        m_TargetAssemblyTypeName: UserOptions, Assembly-CSharp
+        m_MethodName: VolumeUpdater
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2561,6 +2561,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &260185055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260185052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faef43ad580dfda4d9d8f1e199bfc35f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slide: {fileID: 0}
 --- !u!1 &264301629
 GameObject:
   m_ObjectHideFlags: 0
@@ -6502,6 +6515,7 @@ GameObject:
   - component: {fileID: 762141526}
   - component: {fileID: 762141525}
   - component: {fileID: 762141524}
+  - component: {fileID: 762141527}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -6559,6 +6573,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &762141527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762141523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec79c86c78f7140942c730464591fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivityPref: 0
+  volumePref: 0
+  audioMixer: {fileID: 24100000, guid: 6054ef2eb2267a9408bbc3fa90ccda7d, type: 2}
 --- !u!1001 &777391527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15430,17 +15459,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3940049445579572053, guid: c726452305dc5481daf0d9908bd22510, type: 3}
---- !u!114 &1910637228 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 691243402712373209, guid: 115999df62b87de44815a93193662e6d, type: 3}
-  m_PrefabInstance: {fileID: 691243401228897920}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387822518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3742eecd9e34981488400595cc35f15d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1910637231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15508,6 +15526,17 @@ MonoBehaviour:
   _PostProcessShader: {fileID: 4800000, guid: 56d52fd5b7c6911468179e5a7359ce0e, type: 3}
   _PostProcessShaderAccurate: {fileID: 4800000, guid: 2ebed186567d3c244a87538744a62920, type: 3}
   _InterlacingShader: {fileID: 4800000, guid: 03ebd34214b41ef459d7ee6753b062be, type: 3}
+--- !u!114 &1910637236 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 691243402712373209, guid: 115999df62b87de44815a93193662e6d, type: 3}
+  m_PrefabInstance: {fileID: 691243401228897920}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387822518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3742eecd9e34981488400595cc35f15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1913995697
 GameObject:
   m_ObjectHideFlags: 0
@@ -15942,6 +15971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1975173876}
   - component: {fileID: 1975173877}
+  - component: {fileID: 1975173878}
   m_Layer: 5
   m_Name: SensitivitySlider
   m_TagString: Untagged
@@ -16023,9 +16053,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1910637228}
-        m_TargetAssemblyTypeName: PlayerCamera, Assembly-CSharp
-        m_MethodName: updateSensitivity
+      - m_Target: {fileID: 762141527}
+        m_TargetAssemblyTypeName: UserOptions, Assembly-CSharp
+        m_MethodName: SensitivityUpdater
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16035,6 +16065,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1910637236}
+        m_TargetAssemblyTypeName: PlayerCamera, Assembly-CSharp
+        m_MethodName: updateSensitivity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1975173878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975173875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e0c39b439305142a4e9d3a33cd2c0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slide: {fileID: 0}
 --- !u!1 &2005679189 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2085068254518975321, guid: c726452305dc5481daf0d9908bd22510, type: 3}
