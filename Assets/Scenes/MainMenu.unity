@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 92096661}
   - component: {fileID: 92096660}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ExitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -631,6 +631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 349818344}
   - component: {fileID: 349818345}
+  - component: {fileID: 349818346}
   m_Layer: 5
   m_Name: VolumeSlider
   m_TagString: Untagged
@@ -712,9 +713,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: SetVolume
+      - m_Target: {fileID: 2038224387}
+        m_TargetAssemblyTypeName: UserOptions, Assembly-CSharp
+        m_MethodName: VolumeUpdater
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -724,6 +725,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &349818346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349818343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faef43ad580dfda4d9d8f1e199bfc35f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slide: {fileID: 0}
 --- !u!1 &367139353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,6 +1227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 782318373}
   - component: {fileID: 782318374}
+  - component: {fileID: 782318375}
   m_Layer: 5
   m_Name: SensitivitySlider
   m_TagString: Untagged
@@ -1294,9 +1309,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerCamera, Assembly-CSharp
-        m_MethodName: updateSensitivity
+      - m_Target: {fileID: 2038224387}
+        m_TargetAssemblyTypeName: UserOptions, Assembly-CSharp
+        m_MethodName: SensitivityUpdater
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1306,6 +1321,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &782318375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782318372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e0c39b439305142a4e9d3a33cd2c0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slide: {fileID: 0}
 --- !u!1 &833966728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3683,6 +3711,7 @@ GameObject:
   - component: {fileID: 2038224386}
   - component: {fileID: 2038224385}
   - component: {fileID: 2038224384}
+  - component: {fileID: 2038224387}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -3740,6 +3769,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2038224387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038224383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ec79c86c78f7140942c730464591fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivityPref: 0
+  volumePref: 0
+  audioMixer: {fileID: 24100000, guid: 6054ef2eb2267a9408bbc3fa90ccda7d, type: 2}
 --- !u!1 &2092552659
 GameObject:
   m_ObjectHideFlags: 0

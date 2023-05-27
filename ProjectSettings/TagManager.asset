@@ -8,6 +8,7 @@ TagManager:
   - Selectable
   - Keypad
   - GM
+  - InvMgr
   layers:
   - Default
   - TransparentFX

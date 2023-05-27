@@ -10,7 +10,6 @@ public class PauseMenu : MonoBehaviour
     public GameObject pMenu;
     public GameObject oMenu;
     public GameObject dotUI;
-    public AudioMixer audioMixer;
     public static bool isPaused;
     AudioSource pm_AudioSource;
     [SerializeField] Button _exitGame;
@@ -103,8 +102,4 @@ public class PauseMenu : MonoBehaviour
         ScenesManager.Instance.LoadMainMenu();
     }
 
-    public void SetVolume (float volume)
-    {
-        audioMixer.SetFloat("volume", volume);
-    }
 }
