@@ -22,6 +22,9 @@ public class InventoryManager : MonoBehaviour
     public bool blueAcquired = false;
     public bool oneTime = false;
 
+    public int keycodeNum;
+    public string keycodeString;
+
     AudioSource i_AudioSource;
 
     public AllItems itemName;
@@ -34,6 +37,7 @@ public class InventoryManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        keycodeNum = Random.Range(0,1000);
     }
 
     private void Update()
@@ -96,6 +100,24 @@ public class InventoryManager : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public string GetKeycodeStr()
+    {
+        // answer is a three digit string
+        keycodeString = keycodeNum.ToString();
+        if (keycodeNum < 10) {
+            return "00" + keycodeString;
+        } else if (keycodeNum < 100) {
+            return "0" + keycodeString;
+        } else {
+            return keycodeString;
+        }
+    }
+
+    public int GetKeycodeNum()
+    {
+        return keycodeNum;
     }
 
     // All inventory items in game

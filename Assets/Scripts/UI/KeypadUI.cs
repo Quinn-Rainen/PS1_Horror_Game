@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class KeypadUI : MonoBehaviour
 {
     public Text textInput;
-    public string answer = "123";
+    private string answer;
 
     public GameObject Player;
     //public GameObject keyPad;
@@ -24,6 +24,8 @@ public class KeypadUI : MonoBehaviour
     void Start()
     {
         // on interaction, renable cursor
+        GameObject inventory = GameObject.FindGameObjectWithTag("InvMgr");
+        answer = inventory.GetComponent<InventoryManager>().GetKeycodeStr();
         keypadDisplay.SetActive(false);
         kp_AudioSource = GetComponent<AudioSource>();
     }
