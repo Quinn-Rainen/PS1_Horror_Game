@@ -5,21 +5,21 @@ using UnityEngine;
 public class FloodGraveMindAudio : MonoBehaviour
 {
     private AudioSource gravemindVoice;
-   // private bool hasPlayed;
+    private bool hasPlayed;
 
     void Start()
     {
         gravemindVoice = GetComponent<AudioSource>();
         gravemindVoice.Stop();
-        //hasPlayed = false;
+        hasPlayed = false;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") )//&& !hasPlayed)
+        if (other.CompareTag("Player") && !hasPlayed)
         {
             gravemindVoice.Play();
-            // hasPlayed = true;
+            hasPlayed = true;
         }
     }
 }

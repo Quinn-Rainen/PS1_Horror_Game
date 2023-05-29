@@ -7,7 +7,7 @@ public class ScientistVoice : MonoBehaviour
     private AudioSource scienVoice;
     private AudioSource scienVoice2;
 
-   // private bool hasPlayed;
+    private bool hasPlayed;
 
     void Start()
     {
@@ -16,23 +16,23 @@ public class ScientistVoice : MonoBehaviour
 
         scienVoice2 = GetComponent<AudioSource>();
         scienVoice2.Stop();
-        //hasPlayed = false;
+        hasPlayed = false;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") )//&& !hasPlayed)
+        if (other.CompareTag("Player") && !hasPlayed)
         {
             scienVoice.Play();
-            // hasPlayed = true;
+             hasPlayed = true;
         }
     }
 
     void OnTriggerExit(Collider other){
-        if (other.CompareTag("Player") )//&& !hasPlayed)
+        if (other.CompareTag("Player") && !hasPlayed)
         {
             scienVoice2.Play();
-            // hasPlayed = true;
+            hasPlayed = true;
         }      
     }
 }
