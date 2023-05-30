@@ -10,7 +10,6 @@ public class FloodGraveMindAudio : MonoBehaviour
     void Start()
     {
         gravemindVoice = GetComponent<AudioSource>();
-        gravemindVoice.Stop();
         hasPlayed = false;
     }
 
