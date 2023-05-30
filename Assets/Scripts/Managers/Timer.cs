@@ -52,7 +52,7 @@ public class Timer : MonoBehaviour
          if (!isRunning)
         {
             isRunning = true;
-            Debug.Log("Timer Started");
+            //Debug.Log("Timer Started");
         }
 
         // Add the lever to the list of activated levers

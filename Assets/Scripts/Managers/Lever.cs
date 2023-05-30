@@ -19,12 +19,13 @@ public class Lever : MonoBehaviour
 
     private void Start()
     {
-        // Store the original color of the lever renderer
+
         originalColor = leverRenderer.material.color;
     }
 
     private void Update()
     {
+        //taken from door script
         Vector3 distanceToObject = transform.position - player.transform.position; 
         distanceToObject.y = 0;
         if ((distanceToObject.magnitude <= interactionRadius) && Input.GetKeyDown(interactKey))
