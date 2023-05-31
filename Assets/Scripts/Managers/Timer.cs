@@ -73,7 +73,7 @@ public class Timer : MonoBehaviour
         currentTime = timeLimit;
     }
 
-    private bool IsAllLeversActivated()
+    public bool IsAllLeversActivated()
     {
         Lever[] levers = FindObjectsOfType<Lever>();
 
