@@ -13,6 +13,10 @@ public class UserOptions : MonoBehaviour
     {
         volumePref = PlayerPrefs.GetFloat("volume");
         sensitivityPref = PlayerPrefs.GetFloat("sensitivity");
+        if (sensitivityPref == 0)
+        {
+            sensitivityPref = 20;
+        }
     }
 
     private void Update()

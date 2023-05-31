@@ -18688,10 +18688,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1817284925}
   m_HandleRect: {fileID: 1229202964}
   m_Direction: 0
-  m_MinValue: 10
-  m_MaxValue: 400
+  m_MinValue: 0.1
+  m_MaxValue: 60
   m_WholeNumbers: 0
-  m_Value: 210
+  m_Value: 20
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -18731,7 +18731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e0c39b439305142a4e9d3a33cd2c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slide: {fileID: 0}
+  slide: {fileID: 1975173877}
 --- !u!1 &1977285071 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6b883ad926e5f4e5ca29b027e49ccd62, type: 3}
