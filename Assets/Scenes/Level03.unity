@@ -724,16 +724,16 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.535
+  m_Volume: 0.353
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 1000000
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -833,13 +833,13 @@ VideoPlayer:
   - {fileID: 48969608}
   m_DirectAudioVolumes:
   - 0.2
-  m_Url: https://pages.uoregon.edu/estone3/Downloads/img/gjohnce.mp4
+  m_Url: https://pages.uoregon.edu/estone3/Downloads/img/bounze.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
-  m_Looping: 0
+  m_Looping: 1
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
