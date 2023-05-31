@@ -11,9 +11,13 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource w_AudioSource;
     public AudioSource b_AudioSource;
-    //public AudioSource f_AudioSource;
     public AudioClip footfalls; // normal walking audio
     public AudioClip footfalls_sprinting; // normal walking audio
+    public AudioClip heartbeat_breath;
+    public AudioClip breath;
+
+    public Transform monster;
+    public Transform player_cylinder;
 
     public float movementSpeed = 10f;
     public float gravity = -9.81f;
@@ -35,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
     bool is_moving;
-    bool is_breathing;
 
     void Start()
     {
@@ -43,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
         //w_AudioSource = GetComponent<AudioSource>();
         is_moving = false;
         isCrouching = false;
-        is_breathing = false;
     }
 
 
@@ -111,13 +113,22 @@ public class PlayerMovement : MonoBehaviour
         {
             b_AudioSource.Stop();
             w_AudioSource.Stop();
-            is_breathing = false;
         }
         else
         {
-            if (! is_breathing)
+            // check if the monster is within a certain range to get
+            // heartbeats or not
+            Vector3 to_monster = monster.position - player_cylinder.position;
+            if (to_monster.sqrMagnitude < 40000) // 40000 == Mathf.Pow(200, 2)
             {
-                is_breathing = true;
+                b_AudioSource.clip = heartbeat_breath;
+            }
+            else 
+            {
+                b_AudioSource.clip = breath;
+            }
+            if (! b_AudioSource.isPlaying)
+            {
                 b_AudioSource.Play();
             }
             // check if the player is moving and play audio (footsteps) if they are
