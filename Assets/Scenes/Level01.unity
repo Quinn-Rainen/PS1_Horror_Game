@@ -19558,6 +19558,14 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 691243402514408344, guid: 115999df62b87de44815a93193662e6d, type: 3}
+      propertyPath: breath
+      value: 
+      objectReference: {fileID: 8300000, guid: 261955156ed319944a49a20b8addd4c2, type: 3}
+    - target: {fileID: 691243402514408344, guid: 115999df62b87de44815a93193662e6d, type: 3}
+      propertyPath: monster
+      value: 
+      objectReference: {fileID: 1235414248}
+    - target: {fileID: 691243402514408344, guid: 115999df62b87de44815a93193662e6d, type: 3}
       propertyPath: Inventory
       value: 
       objectReference: {fileID: 0}
@@ -19610,9 +19618,17 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 691243402514408344, guid: 115999df62b87de44815a93193662e6d, type: 3}
+      propertyPath: player_cylinder
+      value: 
+      objectReference: {fileID: 1216069699}
+    - target: {fileID: 691243402514408344, guid: 115999df62b87de44815a93193662e6d, type: 3}
       propertyPath: sprintSpeedMult
       value: 1.75
       objectReference: {fileID: 0}
+    - target: {fileID: 691243402514408344, guid: 115999df62b87de44815a93193662e6d, type: 3}
+      propertyPath: heartbeat_breath
+      value: 
+      objectReference: {fileID: 8300000, guid: bfdd07e24244a7d4ca835d1b0064a40e, type: 3}
     - target: {fileID: 691243402514408344, guid: 115999df62b87de44815a93193662e6d, type: 3}
       propertyPath: crouchingMultiplier
       value: 0.75
@@ -19798,7 +19814,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 6054ef2eb2267a9408bbc3fa90ccda7d, type: 2}
-  m_audioClip: {fileID: 8300000, guid: bfdd07e24244a7d4ca835d1b0064a40e, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.07
   m_Pitch: 1
