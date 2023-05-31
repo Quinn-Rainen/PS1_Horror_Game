@@ -74,6 +74,13 @@ public class AIMovement : MonoBehaviour
                 break;
         }
 
+        monster_sounds();
+
+        CheckTransitions();
+    }
+
+    private void monster_sounds()
+    {
         if (! PauseMenu.isPaused)
         {
             if (! a_AudioSource.isPlaying)
@@ -83,12 +90,23 @@ public class AIMovement : MonoBehaviour
                 a_AudioSource.clip = monster_ambient_clips[clip_ind];
                 a_AudioSource.PlayDelayed(Random.Range(2.0f, 10.0f));
             }
+            if (! w_AudioSource.isPlaying)
+            {
+                if (currentState == AIState.Patrol || currentState == AIState.Chase)
+                {
+                    w_AudioSource.Play();
+                }
+                else 
+                {
+                    w_AudioSource.Stop();
+                }
+            }
         }
         else
         {
             a_AudioSource.Stop();
+            w_AudioSource.Stop();
         }
-        CheckTransitions();
     }
 
     private void Patrol()
