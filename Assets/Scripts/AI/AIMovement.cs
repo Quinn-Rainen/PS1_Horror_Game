@@ -34,6 +34,8 @@ public class AIMovement : MonoBehaviour
     // audio sources
     public AudioSource w_AudioSource;
     public AudioSource a_AudioSource;
+    [SerializeField] private AudioClip[] monster_ambient_clips;
+    private int clip_ind;
 
     private enum AIState
     {
@@ -72,12 +74,25 @@ public class AIMovement : MonoBehaviour
                 break;
         }
 
+        if (! PauseMenu.isPaused)
+        {
+            if (! a_AudioSource.isPlaying)
+            {
+                // play a random clicking noise every 2 to 10 seconds
+                clip_ind = Random.Range(0, monster_ambient_clips.Length-1);
+                a_AudioSource.clip = monster_ambient_clips[clip_ind];
+                a_AudioSource.PlayDelayed(Random.Range(2.0f, 10.0f));
+            }
+        }
+        else
+        {
+            a_AudioSource.Stop();
+        }
         CheckTransitions();
     }
 
     private void Patrol()
     {
-        //w_AudioSource.Play();
         if (!walkPointSet || Vector3.Distance(transform.position, patrolPoint) < 1f)
         {
             SetNextPatrolPoint();
