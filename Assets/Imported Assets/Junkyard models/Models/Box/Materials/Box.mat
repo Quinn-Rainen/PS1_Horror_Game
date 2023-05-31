@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Box
-  m_Shader: {fileID: 4800000, guid: 3d83a0b93df56a34792d188705c2f044, type: 3}
+  m_Shader: {fileID: 4800000, guid: 12779ca7a374ca24da44accca8f439a0, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -25,7 +25,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _CustomDepthOffset: 0
+    - _Cutoff: 0.1
+    - _ObjectDithering: 1
     m_Colors:
     - _Color: {r: 0.64, g: 0.64, b: 0.64, a: 1}
   m_BuildTextureStacks: []
