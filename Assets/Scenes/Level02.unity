@@ -1769,7 +1769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566c874e2c942834393dd6fdc01252bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 40
+  timeLimit: 20
   lever: {fileID: 965436131}
 --- !u!4 &138711131
 Transform:
@@ -16797,6 +16797,10 @@ PrefabInstance:
     - target: {fileID: 8973038768472988164, guid: da264b678f41608409d7cec4521b7362, type: 3}
       propertyPath: m_Name
       value: keyDoor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8973038768472988164, guid: da264b678f41608409d7cec4521b7362, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8090658345232967516, guid: da264b678f41608409d7cec4521b7362, type: 3}
