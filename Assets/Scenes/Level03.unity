@@ -14,8 +14,8 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.3807401, b: 0.358727, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -321,6 +321,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5188022757511612153, guid: d196c86f215087041a939149e31120de, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 23ba8a85bf0d74303ad5f5a4db1845a9, type: 2}
+    - target: {fileID: -2824030365143353550, guid: d196c86f215087041a939149e31120de, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 23ba8a85bf0d74303ad5f5a4db1845a9, type: 2}
     - target: {fileID: 919132149155446097, guid: d196c86f215087041a939149e31120de, type: 3}
       propertyPath: m_Name
       value: level3maze
@@ -5647,11 +5655,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a60444fc57c0974692153ead3548ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endingPopup: {fileID: 0}
   inventoryUI: {fileID: 0}
   dotUI: {fileID: 0}
-  gameWinSound: {fileID: 0}
   oldDoor: {fileID: 0}
   newDoor: {fileID: 0}
+  endingText: {fileID: 0}
 --- !u!65 &834470750
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11596,11 +11605,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a60444fc57c0974692153ead3548ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endingPopup: {fileID: 0}
   inventoryUI: {fileID: 0}
   dotUI: {fileID: 0}
-  gameWinSound: {fileID: 1431125228}
   oldDoor: {fileID: 0}
   newDoor: {fileID: 0}
+  endingText: {fileID: 0}
 --- !u!65 &1707715900
 BoxCollider:
   m_ObjectHideFlags: 0
