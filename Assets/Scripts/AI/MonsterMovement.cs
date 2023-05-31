@@ -30,7 +30,7 @@ public class MonsterMovement : MonoBehaviour
 
         while (elapsedTime < maxDuration)
         {
-            Vector3 targetPosition = playerTransform.position + Vector3.up * 10f;
+            Vector3 targetPosition = playerTransform.position + Vector3.up * 10f + Vector3.back*10f;
             jumpscareObject.transform.position = Vector3.Lerp(jumpscareObject.transform.position, targetPosition, moveSpeed * Time.deltaTime);
             elapsedTime += Time.deltaTime;
             yield return null;
