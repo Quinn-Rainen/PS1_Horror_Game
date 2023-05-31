@@ -16,7 +16,8 @@ public class ScenesManager : MonoBehaviour
     {
         MainMenu,
         Level01,
-        Level02
+        Level02,
+        Level03
     }
 
     public void LoadScene(Scene scene)
@@ -31,8 +32,6 @@ public class ScenesManager : MonoBehaviour
         SceneManager.LoadScene(Scene.Level01.ToString());
     }
 
-    // alter these two when each of their scenes are created
-
     public void LoadLevel02()
     {
         SceneCleanup();
@@ -42,7 +41,7 @@ public class ScenesManager : MonoBehaviour
     public void LoadLevel03()
     {
         SceneCleanup();
-        SceneManager.LoadScene(Scene.Level02.ToString());
+        SceneManager.LoadScene(Scene.Level03.ToString());
     }
 
     public void LoadNextScene()
