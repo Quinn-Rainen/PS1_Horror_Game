@@ -6,6 +6,8 @@ using UnityEngine.AI;
 /*
 Research Sources:
 https://learn.unity.com/tutorial/enumerations#
+https://www.youtube.com/watch?v=UjkSFoLxesw
+https://www.youtube.com/watch?v=atCOd4o7tG4
 
  */
 public class AIMovement : MonoBehaviour
