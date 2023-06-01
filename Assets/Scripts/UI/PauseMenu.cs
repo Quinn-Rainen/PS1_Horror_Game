@@ -101,5 +101,4 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         ScenesManager.Instance.LoadMainMenu();
     }
-
 }
