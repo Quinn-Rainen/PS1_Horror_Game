@@ -13,7 +13,7 @@ public class Lever : MonoBehaviour
     public event System.Action Interact;
     public float interactionRadius = 40f;
     public GameObject player;
-    public Timer timer; // Reference to the Timer script
+    public Timer timer;
 
     private Color originalColor;
 
@@ -39,7 +39,7 @@ public class Lever : MonoBehaviour
         if (!isActivated)
         {
             isActivated = true;
-            leverRenderer.material.color = activatedColor; // Change the lever color to green
+            leverRenderer.material.color = activatedColor;
             Interact?.Invoke(); // Raise the Interact event
 
 
@@ -50,7 +50,7 @@ public class Lever : MonoBehaviour
     public void ResetLever()
     {
         isActivated = false;
-        leverRenderer.material.color = deactivatedColor; // Reset the lever color to its deactivated color
+        leverRenderer.material.color = deactivatedColor; 
     }
 
 }

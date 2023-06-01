@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public float timeLimit = 10f; // Time limit in seconds
+    public float timeLimit = 10f; 
     private float currentTime;
-    public Lever lever; // Reference to the Lever script
+    public Lever lever; 
     private bool isRunning = false;
     private List<Lever> activatedLevers = new List<Lever>();
     //private bool isPuzzleSolved = false;
@@ -24,18 +24,19 @@ public class Timer : MonoBehaviour
             Debug.Log(currentTime);
             if (currentTime <= 0f)
             {
-                // Time's up, handle the puzzle failure or time expiration
+                
                 ResetTimer();
                 Debug.Log("Puzzle failed!");
 
-                // Reset all levers to their deactivated state
+                // Reset every lever
                 Lever[] levers = FindObjectsOfType<Lever>();
                 foreach (Lever lever in levers)
                 {
                     lever.ResetLever();
                 }
             }
-            // Check if all levers are activated and start the timer
+            
+            
             if (IsAllLeversActivated())
             {
                 StopTimer();

@@ -141,7 +141,6 @@ public class AIMovement : MonoBehaviour
         // Calculate the direction from the AI to the player
         Vector3 chaseDirection = player.position - transform.position;
 
-        // Calculate the target position by moving towards the player
         Vector3 targetPosition = transform.position + chaseDirection;
 
         agent.SetDestination(targetPosition);
@@ -161,7 +160,7 @@ public class AIMovement : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            // Attack code here
+            // Future Implementaion of the Jumpscare  code here
             // isAttacking = true;
             // animator.SetBool("isAttacking", isAttacking);
             alreadyAttacked = true;
@@ -174,7 +173,7 @@ public class AIMovement : MonoBehaviour
         Debug.Log("RESETATTACK");
         alreadyAttacked = false;
         // isAttacking = false;
-        currentState = AIState.Patrol; // Reset to the patrol state
+        currentState = AIState.Patrol; 
     }
 
     private void CheckTransitions()
@@ -187,7 +186,7 @@ public class AIMovement : MonoBehaviour
         //Debug.Log("Distance: " + distanceToPlayer);
         if (distanceToPlayer <= attackRange && IsFacingPlayer())
         {
-            // Player within attack range and AI is facing the player
+            // Player within attack range
             currentState = AIState.Attack;
         }
         else if (distanceToPlayer > attackRange && distanceToPlayer <= sightRange)
@@ -197,7 +196,6 @@ public class AIMovement : MonoBehaviour
         }
         else
         {
-            // Player not in sight range, go back to patrolling
             currentState = AIState.Patrol;
         }
     }
@@ -207,6 +205,6 @@ public class AIMovement : MonoBehaviour
     {
         Vector3 directionToPlayer = player.position - transform.position;
         float angle = Vector3.Angle(transform.forward, directionToPlayer);
-        return angle < 60f; // Adjust the angle as needed
+        return angle < 60f;
     }
 }

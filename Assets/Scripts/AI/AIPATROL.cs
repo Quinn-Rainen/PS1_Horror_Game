@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class AIPATROL : MonoBehaviour
 {
-
+// Dumbed down version of the AI movement script that just patrols
 
 
 
@@ -23,7 +23,6 @@ public class AIPATROL : MonoBehaviour
     private Vector3 patrolPoint;
     private bool walkPointSet;
     private bool alreadyAttacked;
-    private float timeBetweenAttacks = 2f;
 //----------------------------------------------------------------
 
 
@@ -84,6 +83,7 @@ public class AIPATROL : MonoBehaviour
 
     private void SetNextPatrolPoint()
     {
+        // potentially make this an adjustable slider in the editor for final version
         float randomZ = Random.Range(-20f, 20f);
         float randomX = Random.Range(-20f, 20f);
 
@@ -97,8 +97,6 @@ public class AIPATROL : MonoBehaviour
     {
         Vector3 aiPosition = agent.nextPosition;
         Vector3 playerPosition = player.position;
-
-         // Player not in sight range, go back to patrolling
         currentState = AIState.Patrol;
         
     }
