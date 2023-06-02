@@ -22,13 +22,13 @@ public class KeypadBehavior : MonoBehaviour
     {
 
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        //RaycastHit hit;
 
         Vector3 distanceToObject = transform.position - player.transform.position; 
         distanceToObject.y = 0;
-        if (Physics.Raycast(ray, out hit)) {
-            var selection = hit.transform;
-            if ((distanceToObject.magnitude <= interactionRadius) && (Input.GetKeyDown(KeyCode.E)) && (selection.CompareTag(keypadTag)))
+        // if (Physics.Raycast(ray, out hit)) {
+        //     var selection = hit.transform;
+            if ((distanceToObject.magnitude <= interactionRadius) && (Input.GetKeyDown(KeyCode.E))) //&& (selection.CompareTag(keypadTag)))
             {
                 if(!aComboS.activeSelf) {
                     aCombo.SetActive(true);
@@ -40,7 +40,7 @@ public class KeypadBehavior : MonoBehaviour
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
-        }
+       // }
         
     }
 }
