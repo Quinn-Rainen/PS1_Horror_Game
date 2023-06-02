@@ -19,13 +19,13 @@ public class KeyBehavior : MonoBehaviour
     void Update()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        //RaycastHit hit;
 
         Vector3 distanceToObject = transform.position - player.transform.position; 
         distanceToObject.y = 0;
-        if (Physics.Raycast(ray, out hit)) {
-            var selection = hit.transform;
-            if ((distanceToObject.magnitude <= interactionRadius) && (Input.GetKeyDown(KeyCode.E)) && (selection.CompareTag(selectableTag)))
+        // if (Physics.Raycast(ray, out hit)) {
+        //     var selection = hit.transform;
+            if ((distanceToObject.magnitude <= interactionRadius) && (Input.GetKeyDown(KeyCode.E))) //&& (selection.CompareTag(selectableTag)))
             {
                 InventoryManager.Instance.AddItem(_itemType);
                 Destroy(gameObject);
@@ -33,6 +33,6 @@ public class KeyBehavior : MonoBehaviour
                 findTheKeyS.SetActive(true);
                 Canvas.GetComponent<ObjectiveUI>().openOverlay();
             }
-        }
+        //}
     }
 }
