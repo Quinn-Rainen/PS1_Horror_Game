@@ -10,11 +10,6 @@ public class CockRoachAI : MonoBehaviour
 
 
     public NavMeshAgent agent;
-    public Transform player;
-    public LayerMask Ground, Player;
-
-    public bool isMoving = false;
-    public bool isAttacking = false;
 //----------------AI Movement Variables---------------------
     public float patrolSpeed = 2f;
 
@@ -50,6 +45,7 @@ public class CockRoachAI : MonoBehaviour
 
     private void Update()
     {
+        transform.localEulerAngles = Vector3.forward;
         switch (currentState)
         {
             case AIState.Patrol:

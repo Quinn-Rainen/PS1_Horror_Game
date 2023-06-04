@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.5.1 commit date:2023-04-24, commit time:18:11, hash:e1ccd9d4a1d3</authoring_tool>
+    </contributor>
+    <created>2023-06-03T22:24:55</created>
+    <modified>2023-06-03T22:24:55</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="top-effect">
+      <profile_COMMON>
+        <newparam sid="top_png-surface">
+          <surface type="2D">
+            <init_from>top_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="top_png-sampler">
+          <sampler2D>
+            <source>top_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="top_png-sampler" texcoord="reference_ref-mesh-map-0"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="Untitled-5-effect">
+      <profile_COMMON>
+        <newparam sid="Untitled-5_png-surface">
+          <surface type="2D">
+            <init_from>Untitled-5_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="Untitled-5_png-sampler">
+          <sampler2D>
+            <source>Untitled-5_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="Untitled-5_png-sampler" texcoord="reference_ref-mesh-map-0"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="Untitled-5_png" name="Untitled-5_png">
+      <init_from>Untitled-5.png</init_from>
+    </image>
+    <image id="top_png" name="top_png">
+      <init_from>top.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="top-material" name="top">
+      <instance_effect url="#top-effect"/>
+    </material>
+    <material id="Untitled-5-material" name="Untitled-5">
+      <instance_effect url="#Untitled-5-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="reference_ref-mesh" name="reference ref">
+      <mesh>
+        <source id="reference_ref-mesh-positions">
+          <float_array id="reference_ref-mesh-positions-array" count="105">-0.226573 -0.794188 2.17 2.313427 -1.674188 0.76 -0.226573 3.995812 1.13 -0.226573 -2.564188 0.79 -2.776573 -1.674188 0.76 -1.737376 -0.353031 0.72 -4.297376 -1.453031 -0.06 -1.867376 -0.923031 0.72 3.916434 -1.610441 -0.06 1.286434 -0.400441 0.72 1.416434 -0.860441 0.72 0.573929 1.489664 0.72 0.663929 1.129664 0.72 1.723929 4.389664 -0.06 -1.115149 1.059664 0.72 -0.975149 1.459664 0.72 -2.185149 4.279664 -0.06 -4.069132 1.63003 -0.06999999 -1.409132 0.25003 0.62 -1.269132 0.55003 0.62 3.43819 1.466603 -0.06999999 0.77819 0.596603 0.62 0.85819 0.326603 0.62 -0.42243 -2.271422 0.888428 -0.58243 -2.211422 0.888428 -2.68243 -6.391422 3.878428 0.107227 -2.197324 0.888428 -0.04277282 -2.277324 0.888428 2.557227 -6.507324 3.938428 -2.68243 -6.391422 3.878428 -0.58243 -2.211422 0.888428 -0.42243 -2.271422 0.888428 2.557227 -6.507324 3.938428 -0.04277282 -2.277324 0.888428 0.107227 -2.197324 0.888428</float_array>
+          <technique_common>
+            <accessor source="#reference_ref-mesh-positions-array" count="35" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="reference_ref-mesh-normals">
+          <float_array id="reference_ref-mesh-normals-array" count="45">7.42025e-4 -0.1324265 0.9911926 0.418519 -0.2083783 0.8839798 1.39069e-4 0.2121755 0.9772316 3.41321e-4 -0.6148655 0.788632 -0.4174355 -0.2078006 0.8846279 -0.3191767 0.07279491 0.9448954 0.3213351 0.09081196 0.9426012 0.3823319 0.09558296 0.9190683 -0.3322991 0.1163046 0.9359758 -0.2035037 0.09496843 0.9744574 0.2296006 0.06802994 0.9709045 0.1898711 0.5063193 0.8411837 -0.246645 0.462463 0.8516421 -0.1898711 -0.5063194 -0.8411834 0.2466457 -0.4624632 -0.8516417</float_array>
+          <technique_common>
+            <accessor source="#reference_ref-mesh-normals-array" count="15" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="reference_ref-mesh-map-0">
+          <float_array id="reference_ref-mesh-map-0-array" count="84">0.483871 0.25 1 0.125 0.483871 1 0.483871 0.25 0.483871 0 1 0.125 0.483871 0.25 0 0.125 0.483871 0 0.483871 0.25 0.483871 1 0 0.125 0.333333 0.666667 0.666667 0.666667 0.333333 0.666667 0 1 0 0.666667 0 0.666667 0.333333 0.333333 0.333333 0.333333 0 0 0.333333 0.333333 0.333333 0.333333 0.666667 0 1 0.333333 0.333333 0.333333 0.333333 0.333333 0 0.333333 0.333333 0.333333 0.333333 0.333333 0.333333 0 0.333333 0 1 0.666667 0.333333 0 0.333333 0 0 1 1 0.666667 0.333333 0 0.333333 0 0 1 0.333333 0 0.333333 0</float_array>
+          <technique_common>
+            <accessor source="#reference_ref-mesh-map-0-array" count="42" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="reference_ref-mesh-vertices">
+          <input semantic="POSITION" source="#reference_ref-mesh-positions"/>
+        </vertices>
+        <triangles material="top-material" count="4">
+          <input semantic="VERTEX" source="#reference_ref-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#reference_ref-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#reference_ref-mesh-map-0" offset="2" set="2"/>
+          <p>0 0 0 1 1 1 2 2 2 0 0 3 3 3 4 1 1 5 0 0 6 4 4 7 3 3 8 0 0 9 2 2 10 4 4 11</p>
+        </triangles>
+        <triangles material="Untitled-5-material" count="10">
+          <input semantic="VERTEX" source="#reference_ref-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#reference_ref-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#reference_ref-mesh-map-0" offset="2" set="2"/>
+          <p>5 5 12 6 5 13 7 5 14 8 6 15 9 6 16 10 6 17 11 7 18 12 7 19 13 7 20 14 8 21 15 8 22 16 8 23 17 9 24 18 9 25 19 9 26 20 10 27 21 10 28 22 10 29 23 11 30 24 11 31 25 11 32 26 12 33 27 12 34 28 12 35 29 13 36 30 13 37 31 13 38 32 14 39 33 14 40 34 14 41</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers>
+    <controller id="reference_skeleton_roach-skin" name="reference_skeleton">
+      <skin source="#reference_ref-mesh">
+        <bind_shape_matrix>-0.04133189 0.9968964 0.06700224 0 0.9977082 0.03758401 0.05626386 0 0.05357102 0.06917417 -0.9961652 0 0 0 0 1</bind_shape_matrix>
+        <source id="reference_skeleton_roach-skin-joints">
+          <Name_array id="reference_skeleton_roach-skin-joints-array" count="10">Dummy01 Dummy02 Dummy13 Dummy12 Dummy11 Dummy10 Dummy14 Dummy03 Dummy15 Dummy16</Name_array>
+          <technique_common>
+            <accessor source="#reference_skeleton_roach-skin-joints-array" count="10" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="reference_skeleton_roach-skin-bind_poses">
+          <float_array id="reference_skeleton_roach-skin-bind_poses-array" count="160">1 0 0 0.186573 0 -0.05361682 -0.9985616 1.384188 0 0.9985616 -0.05361682 0 0 0 0 1 1 0 0 0.159693 0 -0.05361682 -0.9985616 0.4991222 0 0.9985616 -0.05361682 0 0 0 0 1 1 0 0 0.505149 0 -0.05361682 -0.9985616 -1.169664 0 0.9985616 -0.05361682 0 0 0 0 1 1 0 0 -0.1039289 0 -0.05361682 -0.9985616 -1.169664 0 0.9985616 -0.05361682 0 0 0 0 1 1 0 0 -0.33819 0 -0.05361682 -0.9985616 -0.3966029 0 0.9985616 -0.05361682 0 0 0 0 1 1 0 0 -0.736434 0 -0.05361682 -0.9985616 0.5404412 0 0.9985616 -0.05361682 0 0 0 0 1 1 0 0 0.669132 0 -0.05361682 -0.9985616 -0.4200299 0 0.9985616 -0.05361682 0 0 0 0 1 1 0 0 1.067376 0 -0.05361682 -0.9985616 0.3530312 0 0.9985616 -0.05361682 0 0 0 0 1 1 0 0 0.57243 0 -0.05361682 -0.9985616 1.891422 0 0.9985616 -0.05361682 -0.8084279 0 0 0 1 1 0 0 -0.067227 0 -0.05361682 -0.9985616 1.857324 0 0.9985616 -0.05361682 -0.8084279 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#reference_skeleton_roach-skin-bind_poses-array" count="10" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="reference_skeleton_roach-skin-weights">
+          <float_array id="reference_skeleton_roach-skin-weights-array" count="35">1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#reference_skeleton_roach-skin-weights-array" count="35" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#reference_skeleton_roach-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#reference_skeleton_roach-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="35">
+          <input semantic="JOINT" source="#reference_skeleton_roach-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#reference_skeleton_roach-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </vcount>
+          <v>0 0 0 1 0 2 0 3 0 4 7 5 7 6 7 7 5 8 5 9 5 10 3 11 3 12 3 13 2 14 2 15 2 16 6 17 6 18 6 19 4 20 4 21 4 22 8 23 8 24 8 25 9 26 9 27 9 28 8 29 8 30 8 31 9 32 9 33 9 34</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+  </library_controllers>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="reference_skeleton" name="reference_skeleton" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 -0.05361683 0.9985616 0 0 -0.9985616 -0.05361683 0 0 0 0 1</matrix>
+        <node id="reference_skeleton_Dummy01" name="Dummy01" sid="Dummy01" type="JOINT">
+          <matrix sid="transform">1 0 0 -0.186573 0 1 0 -1.384188 0 0 1 0 0 0 0 1</matrix>
+          <node id="reference_skeleton_Dummy02" name="Dummy02" sid="Dummy02" type="JOINT">
+            <matrix sid="transform">1 0 0 0.02688 0 1 0 0.8850659 0 0 1 0 0 0 0 1</matrix>
+            <node id="reference_skeleton_Dummy13" name="Dummy13" sid="Dummy13" type="JOINT">
+              <matrix sid="transform">1 0 0 -0.345456 0 1 0 1.668786 0 0 1 0 0 0 0 1</matrix>
+              <extra>
+                <technique profile="blender">
+                  <layer sid="layer" type="string">0</layer>
+                  <tip_x sid="tip_x" type="float">0</tip_x>
+                  <tip_y sid="tip_y" type="float">0.009455561</tip_y>
+                  <tip_z sid="tip_z" type="float">0</tip_z>
+                </technique>
+              </extra>
+            </node>
+            <node id="reference_skeleton_Dummy12" name="Dummy12" sid="Dummy12" type="JOINT">
+              <matrix sid="transform">1 0 0 0.2636219 0 1 0 1.668786 0 0 1 0 0 0 0 1</matrix>
+              <extra>
+                <technique profile="blender">
+                  <layer sid="layer" type="string">0</layer>
+                  <tip_x sid="tip_x" type="float">0</tip_x>
+                  <tip_y sid="tip_y" type="float">0.009455561</tip_y>
+                  <tip_z sid="tip_z" type="float">0</tip_z>
+                </technique>
+              </extra>
+            </node>
+            <node id="reference_skeleton_Dummy11" name="Dummy11" sid="Dummy11" type="JOINT">
+              <matrix sid="transform">1 0 0 0.497883 0 1 0 0.8957251 0 0 1 0 0 0 0 1</matrix>
+              <extra>
+                <technique profile="blender">
+                  <layer sid="layer" type="string">0</layer>
+                  <tip_x sid="tip_x" type="float">0</tip_x>
+                  <tip_y sid="tip_y" type="float">0.009455502</tip_y>
+                  <tip_z sid="tip_z" type="float">0</tip_z>
+                </technique>
+              </extra>
+            </node>
+            <node id="reference_skeleton_Dummy10" name="Dummy10" sid="Dummy10" type="JOINT">
+              <matrix sid="transform">1 0 0 0.896127 0 1 0 -0.04131901 0 0 1 0 0 0 0 1</matrix>
+              <extra>
+                <technique profile="blender">
+                  <layer sid="layer" type="string">0</layer>
+                  <tip_x sid="tip_x" type="float">0</tip_x>
+                  <tip_y sid="tip_y" type="float">0.009455561</tip_y>
+                  <tip_z sid="tip_z" type="float">0</tip_z>
+                </technique>
+              </extra>
+            </node>
+            <node id="reference_skeleton_Dummy14" name="Dummy14" sid="Dummy14" type="JOINT">
+              <matrix sid="transform">1 0 0 -0.509439 0 1 0 0.9191521 0 0 1 0 0 0 0 1</matrix>
+              <extra>
+                <technique profile="blender">
+                  <layer sid="layer" type="string">0</layer>
+                  <tip_x sid="tip_x" type="float">0</tip_x>
+                  <tip_y sid="tip_y" type="float">0.009455502</tip_y>
+                  <tip_z sid="tip_z" type="float">0</tip_z>
+                </technique>
+              </extra>
+            </node>
+            <node id="reference_skeleton_Dummy03" name="Dummy03" sid="Dummy03" type="JOINT">
+              <matrix sid="transform">1 0 0 -0.907683 0 1 0 0.146091 0 0 1 0 0 0 0 1</matrix>
+              <extra>
+                <technique profile="blender">
+                  <layer sid="layer" type="string">0</layer>
+                  <tip_x sid="tip_x" type="float">0</tip_x>
+                  <tip_y sid="tip_y" type="float">0.009455502</tip_y>
+                  <tip_z sid="tip_z" type="float">0</tip_z>
+                </technique>
+              </extra>
+            </node>
+            <extra>
+              <technique profile="blender">
+                <layer sid="layer" type="string">0</layer>
+                <tip_x sid="tip_x" type="float">0</tip_x>
+                <tip_y sid="tip_y" type="float">0.009455502</tip_y>
+                <tip_z sid="tip_z" type="float">0</tip_z>
+              </technique>
+            </extra>
+          </node>
+          <node id="reference_skeleton_Dummy15" name="Dummy15" sid="Dummy15" type="JOINT">
+            <matrix sid="transform">1 0 0 -0.385857 0 1 0 -0.507234 0 0 1 0.808428 0 0 0 1</matrix>
+            <extra>
+              <technique profile="blender">
+                <layer sid="layer" type="string">0</layer>
+                <tip_x sid="tip_x" type="float">0</tip_x>
+                <tip_y sid="tip_y" type="float">0.009455561</tip_y>
+                <tip_z sid="tip_z" type="float">0</tip_z>
+              </technique>
+            </extra>
+          </node>
+          <node id="reference_skeleton_Dummy16" name="Dummy16" sid="Dummy16" type="JOINT">
+            <matrix sid="transform">1 0 0 0.2538 0 1 0 -0.4731359 0 0 1 0.808428 0 0 0 1</matrix>
+            <extra>
+              <technique profile="blender">
+                <layer sid="layer" type="string">0</layer>
+                <tip_x sid="tip_x" type="float">0</tip_x>
+                <tip_y sid="tip_y" type="float">0.009455561</tip_y>
+                <tip_z sid="tip_z" type="float">0</tip_z>
+              </technique>
+            </extra>
+          </node>
+          <extra>
+            <technique profile="blender">
+              <layer sid="layer" type="string">0</layer>
+              <tip_x sid="tip_x" type="float">0</tip_x>
+              <tip_y sid="tip_y" type="float">0.009455561</tip_y>
+              <tip_z sid="tip_z" type="float">0</tip_z>
+            </technique>
+          </extra>
+        </node>
+        <node id="roach" name="roach" type="NODE">
+          <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+          <instance_controller url="#reference_skeleton_roach-skin">
+            <skeleton>#reference_skeleton_Dummy01</skeleton>
+            <bind_material>
+              <technique_common>
+                <instance_material symbol="top-material" target="#top-material">
+                  <bind_vertex_input semantic="reference_ref-mesh-map-0" input_semantic="TEXCOORD" input_set="0"/>
+                </instance_material>
+                <instance_material symbol="Untitled-5-material" target="#Untitled-5-material">
+                  <bind_vertex_input semantic="reference_ref-mesh-map-0" input_semantic="TEXCOORD" input_set="0"/>
+                </instance_material>
+              </technique_common>
+            </bind_material>
+          </instance_controller>
+        </node>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
