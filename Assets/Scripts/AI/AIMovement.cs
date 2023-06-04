@@ -119,8 +119,10 @@ public class AIMovement : MonoBehaviour
         }
 
         agent.speed = patrolSpeed;
-        float speed2 = agent.velocity.magnitude;
-        animator.SetFloat("Speed", speed2);
+        // float speed2 = agent.velocity.magnitude;
+        // animator.SetFloat("Speed", speed2);
+        animator.SetBool("isAttacking", false);
+        animator.SetBool("isChasing", true);
         agent.SetDestination(patrolPoint);
         // Debug.Log(isAttacking);
     }
@@ -136,6 +138,9 @@ public class AIMovement : MonoBehaviour
 
     private void Chase()
     {
+        animator.SetBool("isAttacking", false);
+
+        animator.SetBool("isChasing", true);
         //Debug.Log("CHASING");
 
         agent.speed = chaseSpeed;
@@ -155,6 +160,7 @@ public class AIMovement : MonoBehaviour
     {
         //Debug.Log("Attacking Now");
         agent.SetDestination(transform.position);
+        animator.SetBool("isAttacking", true);
 
         Quaternion targetRotation = Quaternion.LookRotation(player.position - transform.position);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
@@ -172,6 +178,7 @@ public class AIMovement : MonoBehaviour
 
     private void ResetAttack()
     {
+        animator.SetBool("isAttacking", false);
         Debug.Log("RESETATTACK");
         alreadyAttacked = false;
         // isAttacking = false;
