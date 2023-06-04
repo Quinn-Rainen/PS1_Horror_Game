@@ -30,6 +30,7 @@ public class LockedDoorBehavior : MonoBehaviour
         openDoorSound.Stop();
         closeDoorSound.Stop();
         anim = GetComponent<Animator>();
+        anim.SetInteger("neutral", 0);
     }
 
     // Start is called before the first frame update
@@ -83,16 +84,18 @@ public class LockedDoorBehavior : MonoBehaviour
 
     void OpenDoor()
     {
-        transform.Rotate(0, -90, 0);
+        //transform.Rotate(0, -90, 0);
         _isDoorOpen = true;
         //anim.SetTrigger("openTrigger");
+        anim.SetInteger("neutral", 1);
         openDoorSound.Play();
     }
 
     void CloseDoor()
     {
-        transform.Rotate(0, 90, 0);
+        //transform.Rotate(0, 90, 0);
         _isDoorOpen = false;
+        anim.SetInteger("neutral", 2);
         //anim.SetTrigger("closeTrigger");
         closeDoorSound.Play();
     }

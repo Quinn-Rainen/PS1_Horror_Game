@@ -21,6 +21,8 @@ public class DoorBehavior : MonoBehaviour
         openDoorSound.Stop();
         closeDoorSound.Stop();
         anim = GetComponent<Animator>();
+        anim.SetInteger("neutral", 0);
+
 
     }
 
@@ -58,7 +60,7 @@ public class DoorBehavior : MonoBehaviour
     {
         //transform.Rotate(0, -90, 0);
         _isDoorOpen = true;
-        anim.SetBool("isOpen", true);
+        anim.SetInteger("neutral", 1);
         openDoorSound.Play();
     }
 
@@ -67,7 +69,7 @@ public class DoorBehavior : MonoBehaviour
 
         //transform.Rotate(0, 90, 0);
         _isDoorOpen = false;
-        anim.SetBool("isOpen", false);
+        anim.SetInteger("neutral", 2);
         //anim.SetTrigger("closeTrigger");
         closeDoorSound.Play();
     }
