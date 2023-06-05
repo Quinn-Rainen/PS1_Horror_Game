@@ -15,7 +15,7 @@ public class KeypadBehavior : MonoBehaviour
     public GameObject aCombo;
     public GameObject aComboS;
 
-    [SerializeField] private string keypadTag = "Keypad";
+    //[SerializeField] private string keypadTag = "Keypad";
 
 
     void Update()

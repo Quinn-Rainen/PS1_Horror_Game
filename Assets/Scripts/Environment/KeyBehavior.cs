@@ -5,7 +5,7 @@ using UnityEngine;
 public class KeyBehavior : MonoBehaviour
 {
     [SerializeField] InventoryManager.AllItems _itemType;
-    [SerializeField] private string selectableTag = "Selectable";
+    //[SerializeField] private string selectableTag = "Selectable";
     [SerializeField] private Camera cam;
     
     public GameObject player;

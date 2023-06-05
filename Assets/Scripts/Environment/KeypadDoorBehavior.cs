@@ -46,6 +46,7 @@ public class KeypadDoorBehavior : MonoBehaviour
 
     void OpenDoor()
     {
+        Debug.Log("OPEN ONe PIeCE");
         //transform.Rotate(0, -90, 0);
         _isDoorOpen = true;
         anim.SetInteger("neutral", 1);
