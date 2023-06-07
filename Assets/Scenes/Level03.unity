@@ -7211,7 +7211,7 @@ PrefabInstance:
     - target: {fileID: 691243402514408344, guid: 115999df62b87de44815a93193662e6d, type: 3}
       propertyPath: footfalls
       value: 
-      objectReference: {fileID: 8300000, guid: 89085019d1555d64d9d5b98e23e8a17d, type: 3}
+      objectReference: {fileID: 8300000, guid: 02f760918021afa478a1c498de1ce095, type: 3}
     - target: {fileID: 691243402514408344, guid: 115999df62b87de44815a93193662e6d, type: 3}
       propertyPath: inventory
       value: 
@@ -7275,7 +7275,7 @@ PrefabInstance:
     - target: {fileID: 691243402514408344, guid: 115999df62b87de44815a93193662e6d, type: 3}
       propertyPath: footfalls_sprinting
       value: 
-      objectReference: {fileID: 8300000, guid: 882b1df40827ee941a7d301ccc6e59e2, type: 3}
+      objectReference: {fileID: 8300000, guid: 3bff7e36173bd2b4fb201ae8a1971ce4, type: 3}
     - target: {fileID: 691243402712373207, guid: 115999df62b87de44815a93193662e6d, type: 3}
       propertyPath: m_Layer
       value: 7
