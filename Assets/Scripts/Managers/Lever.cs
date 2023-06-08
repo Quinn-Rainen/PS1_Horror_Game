@@ -18,12 +18,14 @@ public class Lever : MonoBehaviour
 
     private Color originalColor;
 
+    private AudioSource l_source;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
+        l_source = GetComponent<AudioSource>();
         originalColor = leverRenderer.material.color;
         anim.SetInteger("state", 0);
-
     }
 
     private void Update()
@@ -47,8 +49,9 @@ public class Lever : MonoBehaviour
 
             Interact?.Invoke(); // Raise the Interact event
 
-
             timer.StartTimer(this);
+
+            l_source.Play();
         }
     }
 
@@ -58,5 +61,4 @@ public class Lever : MonoBehaviour
         isActivated = false;
         leverRenderer.material.color = deactivatedColor; 
     }
-
 }

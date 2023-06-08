@@ -9,11 +9,13 @@ public class Timer : MonoBehaviour
     public Lever lever; 
     private bool isRunning = false;
     private List<Lever> activatedLevers = new List<Lever>();
-    //private bool isPuzzleSolved = false;
+
+    private AudioSource tt_source;
+
     private void Start()
     {
         currentTime = timeLimit;
-
+        tt_source = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -24,7 +26,6 @@ public class Timer : MonoBehaviour
             Debug.Log(currentTime);
             if (currentTime <= 0f)
             {
-                
                 ResetTimer();
                 Debug.Log("Puzzle failed!");
 
@@ -36,23 +37,21 @@ public class Timer : MonoBehaviour
                 }
             }
             
-            
             if (IsAllLeversActivated())
             {
                 StopTimer();
                 Debug.Log("Puzzle Won");
             }
         }
-
-
     }
-
 
     public void StartTimer(Lever lever)
     {
-         if (!isRunning)
+        if (!isRunning)
         {
             isRunning = true;
+            tt_source.Play();
+
             //Debug.Log("Timer Started");
         }
 
@@ -66,6 +65,7 @@ public class Timer : MonoBehaviour
     public void StopTimer()
     {
         isRunning = false;
+        tt_source.Stop();
     }
 
     public void ResetTimer()
@@ -85,7 +85,6 @@ public class Timer : MonoBehaviour
                 return false;
             }
         }
-
         return true;
     }
 }
