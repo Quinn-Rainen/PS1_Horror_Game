@@ -13,14 +13,17 @@ public class Lever : MonoBehaviour
     public event System.Action Interact;
     public float interactionRadius = 40f;
     public GameObject player;
+    private Animator anim;
     public Timer timer;
 
     private Color originalColor;
 
     private void Start()
     {
-
+        anim = GetComponent<Animator>();
         originalColor = leverRenderer.material.color;
+        anim.SetInteger("state", 0);
+
     }
 
     private void Update()
@@ -40,6 +43,8 @@ public class Lever : MonoBehaviour
         {
             isActivated = true;
             leverRenderer.material.color = activatedColor;
+            anim.SetInteger("state", 1);
+
             Interact?.Invoke(); // Raise the Interact event
 
 
@@ -49,6 +54,7 @@ public class Lever : MonoBehaviour
 
     public void ResetLever()
     {
+        anim.SetInteger("state",2);
         isActivated = false;
         leverRenderer.material.color = deactivatedColor; 
     }
