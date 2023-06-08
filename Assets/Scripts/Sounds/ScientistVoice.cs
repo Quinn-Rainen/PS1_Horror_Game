@@ -12,10 +12,10 @@ public class ScientistVoice : MonoBehaviour
     void Start()
     {
         scienVoice = GetComponent<AudioSource>();
-        scienVoice.Stop();
+        // scienVoice.Stop();
 
         scienVoice2 = GetComponent<AudioSource>();
-        scienVoice2.Stop();
+        // scienVoice2.Stop();
         hasPlayed = false;
     }
 
@@ -24,7 +24,7 @@ public class ScientistVoice : MonoBehaviour
         if (other.CompareTag("Player") && !hasPlayed)
         {
             scienVoice.Play();
-             hasPlayed = true;
+            hasPlayed = true;
         }
     }
 
