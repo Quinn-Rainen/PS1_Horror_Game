@@ -37,6 +37,7 @@ public class AIMovement : MonoBehaviour
     public AudioSource w_AudioSource;
     public AudioSource a_AudioSource;
     [SerializeField] private AudioClip[] monster_ambient_clips;
+    public AudioSource at_AudioSource;
     private int clip_ind;
 
     private enum AIState
@@ -165,6 +166,10 @@ public class AIMovement : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(player.position - transform.position);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         
+        if (! at_AudioSource.isPlaying)
+        {
+            at_AudioSource.Play();
+        }
 
         if (!alreadyAttacked)
         {
