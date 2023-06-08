@@ -30,16 +30,10 @@ public class AIPATROL : MonoBehaviour
     private AIState currentState;
     private Vector3 patrolPoint;
     private bool walkPointSet;
-    private bool alreadyAttacked;
-    private float timeBetweenAttacks = 2f;
 //----------------------------------------------------------------
 
 
     // audio sources
-    public AudioSource w_AudioSource;
-    public AudioSource a_AudioSource;
-    [SerializeField] private AudioClip[] monster_ambient_clips;
-    private int clip_ind;
 
     private enum AIState
     {
@@ -77,40 +71,11 @@ public class AIPATROL : MonoBehaviour
             //     break;
         }
 
-        monster_sounds();
 
         CheckTransitions();
     }
 
-    private void monster_sounds()
-    {
-        if (! PauseMenu.isPaused)
-        {
-            if (! a_AudioSource.isPlaying)
-            {
-                // play a random clicking noise every 2 to 10 seconds
-                clip_ind = Random.Range(0, monster_ambient_clips.Length-1);
-                a_AudioSource.clip = monster_ambient_clips[clip_ind];
-                a_AudioSource.PlayDelayed(Random.Range(2.0f, 10.0f));
-            }
-            if (! w_AudioSource.isPlaying)
-            {
-                if (currentState == AIState.Patrol || currentState == AIState.Chase)
-                {
-                    w_AudioSource.Play();
-                }
-                else 
-                {
-                    w_AudioSource.Stop();
-                }
-            }
-        }
-        else
-        {
-            a_AudioSource.Stop();
-            w_AudioSource.Stop();
-        }
-    }
+   
 
     private void Patrol()
     {
@@ -175,7 +140,7 @@ public class AIPATROL : MonoBehaviour
     private void ResetAttack()
     {
         Debug.Log("RESETATTACK");
-        alreadyAttacked = false;
+
         // isAttacking = false;
         currentState = AIState.Patrol; 
     }
