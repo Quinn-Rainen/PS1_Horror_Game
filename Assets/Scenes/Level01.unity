@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.95
     agentHeight: 1
     agentSlope: 30.5
     agentClimb: 0.18
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.31666666
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -16720,7 +16720,7 @@ MonoBehaviour:
   attackRange: 9.77
   patrolSpeed: 72.99
   chaseSpeed: 2.37
-  rotationSpeed: 136.5
+  rotationSpeed: 14.2
   w_AudioSource: {fileID: 0}
   a_AudioSource: {fileID: 0}
   monster_ambient_clips: []
