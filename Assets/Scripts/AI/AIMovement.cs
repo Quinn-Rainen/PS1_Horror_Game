@@ -184,7 +184,7 @@ public class AIMovement : MonoBehaviour
     private void ResetAttack()
     {
         animator.SetBool("isAttacking", false);
-        Debug.Log("RESETATTACK");
+        //Debug.Log("RESETATTACK");
         alreadyAttacked = false;
         // isAttacking = false;
         currentState = AIState.Patrol; 
