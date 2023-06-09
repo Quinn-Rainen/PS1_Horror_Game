@@ -9441,7 +9441,7 @@ GameObject:
   - component: {fileID: 839507574}
   - component: {fileID: 839507572}
   m_Layer: 5
-  m_Name: EndingUI
+  m_Name: EndingUICG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
