@@ -17,7 +17,8 @@ public class ScenesManager : MonoBehaviour
         MainMenu,
         Level01,
         Level02,
-        Level03
+        Level03,
+        Ending
     }
 
     public void LoadScene(Scene scene)
