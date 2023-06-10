@@ -173,7 +173,6 @@ public class AIMovement : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            // Future Implementaion of the Jumpscare  code here
             // isAttacking = true;
             // animator.SetBool("isAttacking", isAttacking);
             alreadyAttacked = true;
@@ -200,12 +199,10 @@ public class AIMovement : MonoBehaviour
         //Debug.Log("Distance: " + distanceToPlayer);
         if (distanceToPlayer <= attackRange && IsFacingPlayer())
         {
-            // Player within attack range
             currentState = AIState.Attack;
         }
         else if (distanceToPlayer > attackRange && distanceToPlayer <= sightRange)
         {
-            // Player within sight range but outside attack range
             currentState = AIState.Chase;
         }
         else

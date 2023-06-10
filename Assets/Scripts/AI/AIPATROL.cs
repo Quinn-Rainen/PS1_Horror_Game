@@ -69,11 +69,13 @@ public class AIPATROL : MonoBehaviour
         agent.SetDestination(patrolPoint);
         walkPointSet = false; // Reset the walkPointSet flag
 
-        // Wait until the agent reaches the destination
+        // I don't understand why the AI isn't working with this but tutorials online aren't helpful here
         yield return new WaitUntil(() => agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending);
 
         // Wait for a delay before setting the next patrol point
-        float delay = 2f; // Adjust the delay duration as needed
+        
+        float delay = 2f;
+
         yield return new WaitForSeconds(delay);
 
         // Set the next patrol point

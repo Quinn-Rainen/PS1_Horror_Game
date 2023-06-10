@@ -64,7 +64,8 @@ private IEnumerator Patrol()
 
     yield return new WaitUntil(() => agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending);
 
-    // Rotate the model to face the next patrol point
+
+    //Couldn't get the roach model to face the right direction, one day I'll fix it
     Vector3 direction = patrolPoint - transform.position;
     if (direction != Vector3.zero)
     {
